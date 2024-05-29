@@ -27,6 +27,10 @@ func TestClaimsAndOrder(t *testing.T) {
 	ClaimsAndSort(149, "0x05abc9884d19f7a10f0fa94f9ced65c30ff05b92")
 }
 
+func TestPositionClaimsAndSort(t *testing.T) {
+	// PositionClaimsAndSort(251, "0x74d7870b11a8bc234532C0D3dec60832dB331FF7")
+}
+
 func TestPools(t *testing.T) {
-	Pools()
+	Synths()
 }

@@ -31,7 +31,7 @@ var (
 
 // TraderMetaData contains all meta data concerning the Trader contract.
 var TraderMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"enterees\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"exitees\",\"type\":\"address[]\"},{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"}],\"name\":\"claimAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"mintees\",\"type\":\"bytes32[]\"},{\"internalType\":\"bytes32[]\",\"name\":\"burnees\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"synth\",\"type\":\"address\"}],\"name\":\"claimAllPosition\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"enterees\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"exitees\",\"type\":\"address[]\"},{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"synth\",\"type\":\"address\"}],\"name\":\"claimAllSwap\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"harvest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}]",
 }
 
 // TraderABI is the input ABI used to generate the binding from.
@@ -211,25 +211,67 @@ func (_Trader *TraderCallerSession) Owner() (common.Address, error) {
 	return _Trader.Contract.Owner(&_Trader.CallOpts)
 }
 
-// ClaimAll is a paid mutator transaction binding the contract method 0xcc276f02.
+// ClaimAllPosition is a paid mutator transaction binding the contract method 0xe89ce427.
 //
-// Solidity: function claimAll(address[] enterees, address[] exitees, uint64 round, address pool) returns()
-func (_Trader *TraderTransactor) ClaimAll(opts *bind.TransactOpts, enterees []common.Address, exitees []common.Address, round uint64, pool common.Address) (*types.Transaction, error) {
-	return _Trader.contract.Transact(opts, "claimAll", enterees, exitees, round, pool)
+// Solidity: function claimAllPosition(bytes32[] mintees, bytes32[] burnees, uint64 round, address synth) returns()
+func (_Trader *TraderTransactor) ClaimAllPosition(opts *bind.TransactOpts, mintees [][32]byte, burnees [][32]byte, round uint64, synth common.Address) (*types.Transaction, error) {
+	return _Trader.contract.Transact(opts, "claimAllPosition", mintees, burnees, round, synth)
 }
 
-// ClaimAll is a paid mutator transaction binding the contract method 0xcc276f02.
+// ClaimAllPosition is a paid mutator transaction binding the contract method 0xe89ce427.
 //
-// Solidity: function claimAll(address[] enterees, address[] exitees, uint64 round, address pool) returns()
-func (_Trader *TraderSession) ClaimAll(enterees []common.Address, exitees []common.Address, round uint64, pool common.Address) (*types.Transaction, error) {
-	return _Trader.Contract.ClaimAll(&_Trader.TransactOpts, enterees, exitees, round, pool)
+// Solidity: function claimAllPosition(bytes32[] mintees, bytes32[] burnees, uint64 round, address synth) returns()
+func (_Trader *TraderSession) ClaimAllPosition(mintees [][32]byte, burnees [][32]byte, round uint64, synth common.Address) (*types.Transaction, error) {
+	return _Trader.Contract.ClaimAllPosition(&_Trader.TransactOpts, mintees, burnees, round, synth)
 }
 
-// ClaimAll is a paid mutator transaction binding the contract method 0xcc276f02.
+// ClaimAllPosition is a paid mutator transaction binding the contract method 0xe89ce427.
 //
-// Solidity: function claimAll(address[] enterees, address[] exitees, uint64 round, address pool) returns()
-func (_Trader *TraderTransactorSession) ClaimAll(enterees []common.Address, exitees []common.Address, round uint64, pool common.Address) (*types.Transaction, error) {
-	return _Trader.Contract.ClaimAll(&_Trader.TransactOpts, enterees, exitees, round, pool)
+// Solidity: function claimAllPosition(bytes32[] mintees, bytes32[] burnees, uint64 round, address synth) returns()
+func (_Trader *TraderTransactorSession) ClaimAllPosition(mintees [][32]byte, burnees [][32]byte, round uint64, synth common.Address) (*types.Transaction, error) {
+	return _Trader.Contract.ClaimAllPosition(&_Trader.TransactOpts, mintees, burnees, round, synth)
+}
+
+// ClaimAllSwap is a paid mutator transaction binding the contract method 0x4bfa4d75.
+//
+// Solidity: function claimAllSwap(address[] enterees, address[] exitees, uint64 round, address synth) returns()
+func (_Trader *TraderTransactor) ClaimAllSwap(opts *bind.TransactOpts, enterees []common.Address, exitees []common.Address, round uint64, synth common.Address) (*types.Transaction, error) {
+	return _Trader.contract.Transact(opts, "claimAllSwap", enterees, exitees, round, synth)
+}
+
+// ClaimAllSwap is a paid mutator transaction binding the contract method 0x4bfa4d75.
+//
+// Solidity: function claimAllSwap(address[] enterees, address[] exitees, uint64 round, address synth) returns()
+func (_Trader *TraderSession) ClaimAllSwap(enterees []common.Address, exitees []common.Address, round uint64, synth common.Address) (*types.Transaction, error) {
+	return _Trader.Contract.ClaimAllSwap(&_Trader.TransactOpts, enterees, exitees, round, synth)
+}
+
+// ClaimAllSwap is a paid mutator transaction binding the contract method 0x4bfa4d75.
+//
+// Solidity: function claimAllSwap(address[] enterees, address[] exitees, uint64 round, address synth) returns()
+func (_Trader *TraderTransactorSession) ClaimAllSwap(enterees []common.Address, exitees []common.Address, round uint64, synth common.Address) (*types.Transaction, error) {
+	return _Trader.Contract.ClaimAllSwap(&_Trader.TransactOpts, enterees, exitees, round, synth)
+}
+
+// Harvest is a paid mutator transaction binding the contract method 0x0e5c011e.
+//
+// Solidity: function harvest(address recipient) returns()
+func (_Trader *TraderTransactor) Harvest(opts *bind.TransactOpts, recipient common.Address) (*types.Transaction, error) {
+	return _Trader.contract.Transact(opts, "harvest", recipient)
+}
+
+// Harvest is a paid mutator transaction binding the contract method 0x0e5c011e.
+//
+// Solidity: function harvest(address recipient) returns()
+func (_Trader *TraderSession) Harvest(recipient common.Address) (*types.Transaction, error) {
+	return _Trader.Contract.Harvest(&_Trader.TransactOpts, recipient)
+}
+
+// Harvest is a paid mutator transaction binding the contract method 0x0e5c011e.
+//
+// Solidity: function harvest(address recipient) returns()
+func (_Trader *TraderTransactorSession) Harvest(recipient common.Address) (*types.Transaction, error) {
+	return _Trader.Contract.Harvest(&_Trader.TransactOpts, recipient)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
@@ -272,6 +314,27 @@ func (_Trader *TraderSession) TransferOwnership(newOwner common.Address) (*types
 // Solidity: function transferOwnership(address newOwner) returns()
 func (_Trader *TraderTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
 	return _Trader.Contract.TransferOwnership(&_Trader.TransactOpts, newOwner)
+}
+
+// Receive is a paid mutator transaction binding the contract receive function.
+//
+// Solidity: receive() payable returns()
+func (_Trader *TraderTransactor) Receive(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Trader.contract.RawTransact(opts, nil) // calldata is disallowed for receive function
+}
+
+// Receive is a paid mutator transaction binding the contract receive function.
+//
+// Solidity: receive() payable returns()
+func (_Trader *TraderSession) Receive() (*types.Transaction, error) {
+	return _Trader.Contract.Receive(&_Trader.TransactOpts)
+}
+
+// Receive is a paid mutator transaction binding the contract receive function.
+//
+// Solidity: receive() payable returns()
+func (_Trader *TraderTransactorSession) Receive() (*types.Transaction, error) {
+	return _Trader.Contract.Receive(&_Trader.TransactOpts)
 }
 
 // TraderOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Trader contract.

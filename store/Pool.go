@@ -29,6 +29,15 @@ var (
 	_ = abi.ConvertType
 )
 
+// ClaimLogicClaimPositionState is an auto generated low-level Go binding around an user-defined struct.
+type ClaimLogicClaimPositionState struct {
+	AmountToSwap *big.Int
+	BotFees      *big.Int
+	TickAndOwner [32]byte
+	LastRound    uint64
+	Round        uint64
+}
+
 // EnterPreviewResult is an auto generated low-level Go binding around an user-defined struct.
 type EnterPreviewResult struct {
 	SwapOut   *big.Int
@@ -51,7 +60,7 @@ type PositionInfo struct {
 
 // PoolMetaData contains all meta data concerning the Pool contract.
 var PoolMetaData = &bind.MetaData{
-	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"sharesBurned\",\"type\":\"uint128\"}],\"name\":\"Burn\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"ClaimedBurn\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"}],\"name\":\"ClaimedEnter\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"}],\"name\":\"ClaimedExit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"minter\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"ClaimedMint\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint96\",\"name\":\"amount\",\"type\":\"uint96\"}],\"name\":\"Collect\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amount0\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amount1\",\"type\":\"uint128\"}],\"name\":\"CollectProtocol\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint96\",\"name\":\"amountSent\",\"type\":\"uint96\"}],\"name\":\"Entered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"sharesLocked\",\"type\":\"uint128\"}],\"name\":\"Exited\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount0\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount1\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"paid0\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"paid1\",\"type\":\"uint256\"}],\"name\":\"Flash\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint16\",\"name\":\"observationCardinalityNextOld\",\"type\":\"uint16\"},{\"indexed\":false,\"internalType\":\"uint16\",\"name\":\"observationCardinalityNextNew\",\"type\":\"uint16\"}],\"name\":\"IncreaseObservationCardinalityNext\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"int80\",\"name\":\"fr\",\"type\":\"int80\"},{\"indexed\":false,\"internalType\":\"int24\",\"name\":\"tick\",\"type\":\"int24\"}],\"name\":\"Initialize\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"uint96\",\"name\":\"amountSent\",\"type\":\"uint96\"}],\"name\":\"Mint\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"feeProtocol0Old\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"feeProtocol1Old\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"feeProtocol0New\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"feeProtocol1New\",\"type\":\"uint8\"}],\"name\":\"SetFeeProtocol\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint96\",\"name\":\"liquidityMoved\",\"type\":\"uint96\"},{\"indexed\":false,\"internalType\":\"int24\",\"name\":\"tick\",\"type\":\"int24\"}],\"name\":\"Swap\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"FR_TIME_BASIS\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"_transferShares\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"_transferSharesFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"internalType\":\"uint128\",\"name\":\"shares_\",\"type\":\"uint128\"},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64[]\",\"name\":\"mints_\",\"type\":\"uint64[]\"},{\"internalType\":\"uint64[]\",\"name\":\"burns_\",\"type\":\"uint64[]\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimAllPosition\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"enterees\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"exitees\",\"type\":\"address[]\"},{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"uint96\",\"name\":\"claimFee\",\"type\":\"uint96\"}],\"name\":\"claimAllPosition\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64[]\",\"name\":\"entries_\",\"type\":\"uint64[]\"},{\"internalType\":\"uint64[]\",\"name\":\"exits_\",\"type\":\"uint64[]\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimAllSwap\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"enterees\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"exitees\",\"type\":\"address[]\"},{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"uint96\",\"name\":\"claimFee\",\"type\":\"uint96\"}],\"name\":\"claimAllSwap\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimBurn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"}],\"name\":\"claimBurnFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimEnter\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"}],\"name\":\"claimEnterFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimExit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"}],\"name\":\"claimMintFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"}],\"name\":\"enter\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"}],\"name\":\"exit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fee\",\"outputs\":[{\"internalType\":\"uint24\",\"name\":\"\",\"type\":\"uint24\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPrice\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint24\",\"name\":\"fee_\",\"type\":\"uint24\"},{\"internalType\":\"address\",\"name\":\"oracle_\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"oracleSlot_\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description_\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"long_\",\"type\":\"bool\"},{\"internalType\":\"enumIOracleView.Leverage\",\"name\":\"leverage_\",\"type\":\"uint8\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"leverage\",\"outputs\":[{\"internalType\":\"enumIOracleView.Leverage\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"long\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"contractIOracleView\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracleFee\",\"outputs\":[{\"internalType\":\"uint24\",\"name\":\"\",\"type\":\"uint24\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracleSlot\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"poolDebt\",\"outputs\":[{\"internalType\":\"uint96\",\"name\":\"\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"position\",\"outputs\":[{\"components\":[{\"internalType\":\"uint128\",\"name\":\"shares\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"sharesRatio\",\"type\":\"uint128\"}],\"internalType\":\"structPosition.Info\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"positionPnL\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"positionValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"swapIn\",\"type\":\"int256\"}],\"name\":\"previewEnter\",\"outputs\":[{\"components\":[{\"internalType\":\"int256\",\"name\":\"swapOut\",\"type\":\"int256\"},{\"internalType\":\"uint96\",\"name\":\"feeAmount\",\"type\":\"uint96\"},{\"internalType\":\"int80\",\"name\":\"frAfter\",\"type\":\"int80\"}],\"internalType\":\"structEnter.PreviewResult\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"swapIn\",\"type\":\"int256\"}],\"name\":\"previewExit\",\"outputs\":[{\"components\":[{\"internalType\":\"int256\",\"name\":\"swapOut\",\"type\":\"int256\"},{\"internalType\":\"uint96\",\"name\":\"feeAmount\",\"type\":\"uint96\"},{\"internalType\":\"int80\",\"name\":\"frAfter\",\"type\":\"int80\"}],\"internalType\":\"structExit.PreviewResult\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rebalance\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"shares_\",\"type\":\"uint256\"}],\"name\":\"sharesValueWithRebalance\",\"outputs\":[{\"internalType\":\"uint96\",\"name\":\"\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"slot0\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"pnl\",\"type\":\"uint128\"},{\"internalType\":\"uint96\",\"name\":\"totalLiquidities\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"slot1\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"tickRatio\",\"type\":\"uint128\"},{\"internalType\":\"int24\",\"name\":\"tick\",\"type\":\"int24\"},{\"internalType\":\"int24\",\"name\":\"rightMostInitializedTick\",\"type\":\"int24\"},{\"internalType\":\"int24\",\"name\":\"leftMostInitializedTick\",\"type\":\"int24\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"tick\",\"type\":\"int24\"}],\"name\":\"tickValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"sharesBurned\",\"type\":\"uint128\"}],\"name\":\"Burn\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"ClaimedBurn\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"}],\"name\":\"ClaimedEnter\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"exitee\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"}],\"name\":\"ClaimedExit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"minter\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"ClaimedMint\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint96\",\"name\":\"amount\",\"type\":\"uint96\"}],\"name\":\"Collect\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint96\",\"name\":\"amountSent\",\"type\":\"uint96\"}],\"name\":\"Entered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"exitee\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"sharesLocked\",\"type\":\"uint128\"}],\"name\":\"Exited\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"int80\",\"name\":\"fr\",\"type\":\"int80\"},{\"indexed\":false,\"internalType\":\"int24\",\"name\":\"tick\",\"type\":\"int24\"}],\"name\":\"Initialize\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"indexed\":true,\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint96\",\"name\":\"amountSent\",\"type\":\"uint96\"}],\"name\":\"Mint\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint96\",\"name\":\"liquidityMoved\",\"type\":\"uint96\"},{\"indexed\":false,\"internalType\":\"int24\",\"name\":\"tick\",\"type\":\"int24\"}],\"name\":\"Swap\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ORACLE_FEE\",\"outputs\":[{\"internalType\":\"uint24\",\"name\":\"\",\"type\":\"uint24\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"_transferShares\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"_transferSharesFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"internalType\":\"uint128\",\"name\":\"shares_\",\"type\":\"uint128\"},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64[]\",\"name\":\"mints_\",\"type\":\"uint64[]\"},{\"internalType\":\"int24[]\",\"name\":\"mintTicks\",\"type\":\"int24[]\"},{\"internalType\":\"uint64[]\",\"name\":\"burns_\",\"type\":\"uint64[]\"},{\"internalType\":\"int24[]\",\"name\":\"burnTicks\",\"type\":\"int24[]\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimAllPosition\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"mintees\",\"type\":\"bytes32[]\"},{\"internalType\":\"bytes32[]\",\"name\":\"burnees\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"uint96\",\"name\":\"claimFee\",\"type\":\"uint96\"}],\"name\":\"claimAllPosition\",\"outputs\":[{\"components\":[{\"internalType\":\"int96\",\"name\":\"amountToSwap\",\"type\":\"int96\"},{\"internalType\":\"uint96\",\"name\":\"botFees\",\"type\":\"uint96\"},{\"internalType\":\"bytes32\",\"name\":\"tickAndOwner\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"lastRound\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"}],\"internalType\":\"structClaimLogic.ClaimPositionState\",\"name\":\"state\",\"type\":\"tuple\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64[]\",\"name\":\"entries_\",\"type\":\"uint64[]\"},{\"internalType\":\"uint64[]\",\"name\":\"exits_\",\"type\":\"uint64[]\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimAllSwap\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"enterees\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"exitees\",\"type\":\"address[]\"},{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"uint96\",\"name\":\"claimFee\",\"type\":\"uint96\"}],\"name\":\"claimAllSwap\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"bytes32\",\"name\":\"tickAndFrom\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimBurn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimEnter\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimExit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"bytes32\",\"name\":\"tickAndFrom\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claimMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"}],\"name\":\"enter\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"}],\"name\":\"exit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fee\",\"outputs\":[{\"internalType\":\"uint24\",\"name\":\"\",\"type\":\"uint24\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPrice\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint24\",\"name\":\"fee_\",\"type\":\"uint24\"},{\"internalType\":\"address\",\"name\":\"oracle_\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"oracleSlot_\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description_\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"long_\",\"type\":\"bool\"},{\"internalType\":\"enumIOracleView.Leverage\",\"name\":\"leverage_\",\"type\":\"uint8\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"leverage\",\"outputs\":[{\"internalType\":\"enumIOracleView.Leverage\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"long\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"contractIOracleView\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracleSlot\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"_int24\",\"type\":\"int24\"},{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"pack\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"name\":\"permit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"poolDebt\",\"outputs\":[{\"internalType\":\"uint96\",\"name\":\"\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"position\",\"outputs\":[{\"components\":[{\"internalType\":\"uint128\",\"name\":\"shares\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"sharesRatio\",\"type\":\"uint128\"}],\"internalType\":\"structPosition.Info\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"positionTick\",\"type\":\"int24\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"positionValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"swapIn\",\"type\":\"int256\"}],\"name\":\"previewEnter\",\"outputs\":[{\"components\":[{\"internalType\":\"int256\",\"name\":\"swapOut\",\"type\":\"int256\"},{\"internalType\":\"uint96\",\"name\":\"feeAmount\",\"type\":\"uint96\"},{\"internalType\":\"int80\",\"name\":\"frAfter\",\"type\":\"int80\"}],\"internalType\":\"structEnter.PreviewResult\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"swapIn\",\"type\":\"int256\"}],\"name\":\"previewExit\",\"outputs\":[{\"components\":[{\"internalType\":\"int256\",\"name\":\"swapOut\",\"type\":\"int256\"},{\"internalType\":\"uint96\",\"name\":\"feeAmount\",\"type\":\"uint96\"},{\"internalType\":\"int80\",\"name\":\"frAfter\",\"type\":\"int80\"}],\"internalType\":\"structExit.PreviewResult\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rebalance\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"shares\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"shares_\",\"type\":\"uint256\"}],\"name\":\"sharesValueWithRebalance\",\"outputs\":[{\"internalType\":\"uint96\",\"name\":\"\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"slot0\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"pnl\",\"type\":\"uint128\"},{\"internalType\":\"uint96\",\"name\":\"totalLiquidities\",\"type\":\"uint96\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"slot1\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"tickRatio\",\"type\":\"uint128\"},{\"internalType\":\"int24\",\"name\":\"tick\",\"type\":\"int24\"},{\"internalType\":\"int24\",\"name\":\"rightMostInitializedTick\",\"type\":\"int24\"},{\"internalType\":\"int24\",\"name\":\"leftMostInitializedTick\",\"type\":\"int24\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"slot2\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"totalShares\",\"type\":\"uint128\"},{\"internalType\":\"uint64\",\"name\":\"lastUpdate\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"lastPrice\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int24\",\"name\":\"tick\",\"type\":\"int24\"}],\"name\":\"tickValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_bytes\",\"type\":\"bytes32\"}],\"name\":\"unpack\",\"outputs\":[{\"internalType\":\"int24\",\"name\":\"\",\"type\":\"int24\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]",
 }
 
 // PoolABI is the input ABI used to generate the binding from.
@@ -200,12 +209,12 @@ func (_Pool *PoolTransactorRaw) Transact(opts *bind.TransactOpts, method string,
 	return _Pool.Contract.contract.Transact(opts, method, params...)
 }
 
-// FRTIMEBASIS is a free data retrieval call binding the contract method 0x2c15581f.
+// ORACLEFEE is a free data retrieval call binding the contract method 0x31d8a985.
 //
-// Solidity: function FR_TIME_BASIS() view returns(uint256)
-func (_Pool *PoolCaller) FRTIMEBASIS(opts *bind.CallOpts) (*big.Int, error) {
+// Solidity: function ORACLE_FEE() view returns(uint24)
+func (_Pool *PoolCaller) ORACLEFEE(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Pool.contract.Call(opts, &out, "FR_TIME_BASIS")
+	err := _Pool.contract.Call(opts, &out, "ORACLE_FEE")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -217,18 +226,18 @@ func (_Pool *PoolCaller) FRTIMEBASIS(opts *bind.CallOpts) (*big.Int, error) {
 
 }
 
-// FRTIMEBASIS is a free data retrieval call binding the contract method 0x2c15581f.
+// ORACLEFEE is a free data retrieval call binding the contract method 0x31d8a985.
 //
-// Solidity: function FR_TIME_BASIS() view returns(uint256)
-func (_Pool *PoolSession) FRTIMEBASIS() (*big.Int, error) {
-	return _Pool.Contract.FRTIMEBASIS(&_Pool.CallOpts)
+// Solidity: function ORACLE_FEE() view returns(uint24)
+func (_Pool *PoolSession) ORACLEFEE() (*big.Int, error) {
+	return _Pool.Contract.ORACLEFEE(&_Pool.CallOpts)
 }
 
-// FRTIMEBASIS is a free data retrieval call binding the contract method 0x2c15581f.
+// ORACLEFEE is a free data retrieval call binding the contract method 0x31d8a985.
 //
-// Solidity: function FR_TIME_BASIS() view returns(uint256)
-func (_Pool *PoolCallerSession) FRTIMEBASIS() (*big.Int, error) {
-	return _Pool.Contract.FRTIMEBASIS(&_Pool.CallOpts)
+// Solidity: function ORACLE_FEE() view returns(uint24)
+func (_Pool *PoolCallerSession) ORACLEFEE() (*big.Int, error) {
+	return _Pool.Contract.ORACLEFEE(&_Pool.CallOpts)
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
@@ -541,37 +550,6 @@ func (_Pool *PoolCallerSession) Oracle() (common.Address, error) {
 	return _Pool.Contract.Oracle(&_Pool.CallOpts)
 }
 
-// OracleFee is a free data retrieval call binding the contract method 0xf9cd3ceb.
-//
-// Solidity: function oracleFee() view returns(uint24)
-func (_Pool *PoolCaller) OracleFee(opts *bind.CallOpts) (*big.Int, error) {
-	var out []interface{}
-	err := _Pool.contract.Call(opts, &out, "oracleFee")
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// OracleFee is a free data retrieval call binding the contract method 0xf9cd3ceb.
-//
-// Solidity: function oracleFee() view returns(uint24)
-func (_Pool *PoolSession) OracleFee() (*big.Int, error) {
-	return _Pool.Contract.OracleFee(&_Pool.CallOpts)
-}
-
-// OracleFee is a free data retrieval call binding the contract method 0xf9cd3ceb.
-//
-// Solidity: function oracleFee() view returns(uint24)
-func (_Pool *PoolCallerSession) OracleFee() (*big.Int, error) {
-	return _Pool.Contract.OracleFee(&_Pool.CallOpts)
-}
-
 // OracleSlot is a free data retrieval call binding the contract method 0x63730345.
 //
 // Solidity: function oracleSlot() view returns(uint8)
@@ -601,6 +579,37 @@ func (_Pool *PoolSession) OracleSlot() (uint8, error) {
 // Solidity: function oracleSlot() view returns(uint8)
 func (_Pool *PoolCallerSession) OracleSlot() (uint8, error) {
 	return _Pool.Contract.OracleSlot(&_Pool.CallOpts)
+}
+
+// Pack is a free data retrieval call binding the contract method 0x34a55cfa.
+//
+// Solidity: function pack(int24 _int24, address _address) pure returns(bytes32)
+func (_Pool *PoolCaller) Pack(opts *bind.CallOpts, _int24 *big.Int, _address common.Address) ([32]byte, error) {
+	var out []interface{}
+	err := _Pool.contract.Call(opts, &out, "pack", _int24, _address)
+
+	if err != nil {
+		return *new([32]byte), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
+
+	return out0, err
+
+}
+
+// Pack is a free data retrieval call binding the contract method 0x34a55cfa.
+//
+// Solidity: function pack(int24 _int24, address _address) pure returns(bytes32)
+func (_Pool *PoolSession) Pack(_int24 *big.Int, _address common.Address) ([32]byte, error) {
+	return _Pool.Contract.Pack(&_Pool.CallOpts, _int24, _address)
+}
+
+// Pack is a free data retrieval call binding the contract method 0x34a55cfa.
+//
+// Solidity: function pack(int24 _int24, address _address) pure returns(bytes32)
+func (_Pool *PoolCallerSession) Pack(_int24 *big.Int, _address common.Address) ([32]byte, error) {
+	return _Pool.Contract.Pack(&_Pool.CallOpts, _int24, _address)
 }
 
 // PoolDebt is a free data retrieval call binding the contract method 0xade1a170.
@@ -663,37 +672,6 @@ func (_Pool *PoolSession) Position(positionTick *big.Int, owner common.Address) 
 // Solidity: function position(int24 positionTick, address owner) view returns((uint128,uint128))
 func (_Pool *PoolCallerSession) Position(positionTick *big.Int, owner common.Address) (PositionInfo, error) {
 	return _Pool.Contract.Position(&_Pool.CallOpts, positionTick, owner)
-}
-
-// PositionPnL is a free data retrieval call binding the contract method 0x02c37739.
-//
-// Solidity: function positionPnL(int24 positionTick, address owner) view returns(int256)
-func (_Pool *PoolCaller) PositionPnL(opts *bind.CallOpts, positionTick *big.Int, owner common.Address) (*big.Int, error) {
-	var out []interface{}
-	err := _Pool.contract.Call(opts, &out, "positionPnL", positionTick, owner)
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// PositionPnL is a free data retrieval call binding the contract method 0x02c37739.
-//
-// Solidity: function positionPnL(int24 positionTick, address owner) view returns(int256)
-func (_Pool *PoolSession) PositionPnL(positionTick *big.Int, owner common.Address) (*big.Int, error) {
-	return _Pool.Contract.PositionPnL(&_Pool.CallOpts, positionTick, owner)
-}
-
-// PositionPnL is a free data retrieval call binding the contract method 0x02c37739.
-//
-// Solidity: function positionPnL(int24 positionTick, address owner) view returns(int256)
-func (_Pool *PoolCallerSession) PositionPnL(positionTick *big.Int, owner common.Address) (*big.Int, error) {
-	return _Pool.Contract.PositionPnL(&_Pool.CallOpts, positionTick, owner)
 }
 
 // PositionValue is a free data retrieval call binding the contract method 0x1f7a7002.
@@ -787,6 +765,37 @@ func (_Pool *PoolSession) PreviewExit(swapIn *big.Int) (ExitPreviewResult, error
 // Solidity: function previewExit(int256 swapIn) view returns((int256,uint96,int80))
 func (_Pool *PoolCallerSession) PreviewExit(swapIn *big.Int) (ExitPreviewResult, error) {
 	return _Pool.Contract.PreviewExit(&_Pool.CallOpts, swapIn)
+}
+
+// Shares is a free data retrieval call binding the contract method 0xce7c2ac2.
+//
+// Solidity: function shares(address ) view returns(uint256)
+func (_Pool *PoolCaller) Shares(opts *bind.CallOpts, arg0 common.Address) (*big.Int, error) {
+	var out []interface{}
+	err := _Pool.contract.Call(opts, &out, "shares", arg0)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// Shares is a free data retrieval call binding the contract method 0xce7c2ac2.
+//
+// Solidity: function shares(address ) view returns(uint256)
+func (_Pool *PoolSession) Shares(arg0 common.Address) (*big.Int, error) {
+	return _Pool.Contract.Shares(&_Pool.CallOpts, arg0)
+}
+
+// Shares is a free data retrieval call binding the contract method 0xce7c2ac2.
+//
+// Solidity: function shares(address ) view returns(uint256)
+func (_Pool *PoolCallerSession) Shares(arg0 common.Address) (*big.Int, error) {
+	return _Pool.Contract.Shares(&_Pool.CallOpts, arg0)
 }
 
 // SharesValueWithRebalance is a free data retrieval call binding the contract method 0xe71a4dd0.
@@ -920,6 +929,56 @@ func (_Pool *PoolCallerSession) Slot1() (struct {
 	return _Pool.Contract.Slot1(&_Pool.CallOpts)
 }
 
+// Slot2 is a free data retrieval call binding the contract method 0xd987e6b5.
+//
+// Solidity: function slot2() view returns(uint128 totalShares, uint64 lastUpdate, uint64 lastPrice)
+func (_Pool *PoolCaller) Slot2(opts *bind.CallOpts) (struct {
+	TotalShares *big.Int
+	LastUpdate  uint64
+	LastPrice   uint64
+}, error) {
+	var out []interface{}
+	err := _Pool.contract.Call(opts, &out, "slot2")
+
+	outstruct := new(struct {
+		TotalShares *big.Int
+		LastUpdate  uint64
+		LastPrice   uint64
+	})
+	if err != nil {
+		return *outstruct, err
+	}
+
+	outstruct.TotalShares = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.LastUpdate = *abi.ConvertType(out[1], new(uint64)).(*uint64)
+	outstruct.LastPrice = *abi.ConvertType(out[2], new(uint64)).(*uint64)
+
+	return *outstruct, err
+
+}
+
+// Slot2 is a free data retrieval call binding the contract method 0xd987e6b5.
+//
+// Solidity: function slot2() view returns(uint128 totalShares, uint64 lastUpdate, uint64 lastPrice)
+func (_Pool *PoolSession) Slot2() (struct {
+	TotalShares *big.Int
+	LastUpdate  uint64
+	LastPrice   uint64
+}, error) {
+	return _Pool.Contract.Slot2(&_Pool.CallOpts)
+}
+
+// Slot2 is a free data retrieval call binding the contract method 0xd987e6b5.
+//
+// Solidity: function slot2() view returns(uint128 totalShares, uint64 lastUpdate, uint64 lastPrice)
+func (_Pool *PoolCallerSession) Slot2() (struct {
+	TotalShares *big.Int
+	LastUpdate  uint64
+	LastPrice   uint64
+}, error) {
+	return _Pool.Contract.Slot2(&_Pool.CallOpts)
+}
+
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
@@ -1013,6 +1072,38 @@ func (_Pool *PoolCallerSession) TotalSupply() (*big.Int, error) {
 	return _Pool.Contract.TotalSupply(&_Pool.CallOpts)
 }
 
+// Unpack is a free data retrieval call binding the contract method 0x71516dd9.
+//
+// Solidity: function unpack(bytes32 _bytes) pure returns(int24, address)
+func (_Pool *PoolCaller) Unpack(opts *bind.CallOpts, _bytes [32]byte) (*big.Int, common.Address, error) {
+	var out []interface{}
+	err := _Pool.contract.Call(opts, &out, "unpack", _bytes)
+
+	if err != nil {
+		return *new(*big.Int), *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out1 := *abi.ConvertType(out[1], new(common.Address)).(*common.Address)
+
+	return out0, out1, err
+
+}
+
+// Unpack is a free data retrieval call binding the contract method 0x71516dd9.
+//
+// Solidity: function unpack(bytes32 _bytes) pure returns(int24, address)
+func (_Pool *PoolSession) Unpack(_bytes [32]byte) (*big.Int, common.Address, error) {
+	return _Pool.Contract.Unpack(&_Pool.CallOpts, _bytes)
+}
+
+// Unpack is a free data retrieval call binding the contract method 0x71516dd9.
+//
+// Solidity: function unpack(bytes32 _bytes) pure returns(int24, address)
+func (_Pool *PoolCallerSession) Unpack(_bytes [32]byte) (*big.Int, common.Address, error) {
+	return _Pool.Contract.Unpack(&_Pool.CallOpts, _bytes)
+}
+
 // TransferShares is a paid mutator transaction binding the contract method 0x2cf036ce.
 //
 // Solidity: function _transferShares(address to, uint256 amount) returns(bool)
@@ -1097,46 +1188,46 @@ func (_Pool *PoolTransactorSession) Burn(positionTick *big.Int, shares_ *big.Int
 	return _Pool.Contract.Burn(&_Pool.TransactOpts, positionTick, shares_, claimer)
 }
 
-// ClaimAllPosition is a paid mutator transaction binding the contract method 0x89cfc257.
+// ClaimAllPosition is a paid mutator transaction binding the contract method 0x009de35e.
 //
-// Solidity: function claimAllPosition(uint64[] mints_, uint64[] burns_, address recipient) returns()
-func (_Pool *PoolTransactor) ClaimAllPosition(opts *bind.TransactOpts, mints_ []uint64, burns_ []uint64, recipient common.Address) (*types.Transaction, error) {
-	return _Pool.contract.Transact(opts, "claimAllPosition", mints_, burns_, recipient)
+// Solidity: function claimAllPosition(uint64[] mints_, int24[] mintTicks, uint64[] burns_, int24[] burnTicks, address recipient) returns()
+func (_Pool *PoolTransactor) ClaimAllPosition(opts *bind.TransactOpts, mints_ []uint64, mintTicks []*big.Int, burns_ []uint64, burnTicks []*big.Int, recipient common.Address) (*types.Transaction, error) {
+	return _Pool.contract.Transact(opts, "claimAllPosition", mints_, mintTicks, burns_, burnTicks, recipient)
 }
 
-// ClaimAllPosition is a paid mutator transaction binding the contract method 0x89cfc257.
+// ClaimAllPosition is a paid mutator transaction binding the contract method 0x009de35e.
 //
-// Solidity: function claimAllPosition(uint64[] mints_, uint64[] burns_, address recipient) returns()
-func (_Pool *PoolSession) ClaimAllPosition(mints_ []uint64, burns_ []uint64, recipient common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimAllPosition(&_Pool.TransactOpts, mints_, burns_, recipient)
+// Solidity: function claimAllPosition(uint64[] mints_, int24[] mintTicks, uint64[] burns_, int24[] burnTicks, address recipient) returns()
+func (_Pool *PoolSession) ClaimAllPosition(mints_ []uint64, mintTicks []*big.Int, burns_ []uint64, burnTicks []*big.Int, recipient common.Address) (*types.Transaction, error) {
+	return _Pool.Contract.ClaimAllPosition(&_Pool.TransactOpts, mints_, mintTicks, burns_, burnTicks, recipient)
 }
 
-// ClaimAllPosition is a paid mutator transaction binding the contract method 0x89cfc257.
+// ClaimAllPosition is a paid mutator transaction binding the contract method 0x009de35e.
 //
-// Solidity: function claimAllPosition(uint64[] mints_, uint64[] burns_, address recipient) returns()
-func (_Pool *PoolTransactorSession) ClaimAllPosition(mints_ []uint64, burns_ []uint64, recipient common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimAllPosition(&_Pool.TransactOpts, mints_, burns_, recipient)
+// Solidity: function claimAllPosition(uint64[] mints_, int24[] mintTicks, uint64[] burns_, int24[] burnTicks, address recipient) returns()
+func (_Pool *PoolTransactorSession) ClaimAllPosition(mints_ []uint64, mintTicks []*big.Int, burns_ []uint64, burnTicks []*big.Int, recipient common.Address) (*types.Transaction, error) {
+	return _Pool.Contract.ClaimAllPosition(&_Pool.TransactOpts, mints_, mintTicks, burns_, burnTicks, recipient)
 }
 
-// ClaimAllPosition0 is a paid mutator transaction binding the contract method 0xeaf8c36c.
+// ClaimAllPosition0 is a paid mutator transaction binding the contract method 0xa3055dca.
 //
-// Solidity: function claimAllPosition(address[] enterees, address[] exitees, uint64 round, uint96 claimFee) returns()
-func (_Pool *PoolTransactor) ClaimAllPosition0(opts *bind.TransactOpts, enterees []common.Address, exitees []common.Address, round uint64, claimFee *big.Int) (*types.Transaction, error) {
-	return _Pool.contract.Transact(opts, "claimAllPosition0", enterees, exitees, round, claimFee)
+// Solidity: function claimAllPosition(bytes32[] mintees, bytes32[] burnees, uint64 round, uint96 claimFee) returns((int96,uint96,bytes32,uint64,uint64) state)
+func (_Pool *PoolTransactor) ClaimAllPosition0(opts *bind.TransactOpts, mintees [][32]byte, burnees [][32]byte, round uint64, claimFee *big.Int) (*types.Transaction, error) {
+	return _Pool.contract.Transact(opts, "claimAllPosition0", mintees, burnees, round, claimFee)
 }
 
-// ClaimAllPosition0 is a paid mutator transaction binding the contract method 0xeaf8c36c.
+// ClaimAllPosition0 is a paid mutator transaction binding the contract method 0xa3055dca.
 //
-// Solidity: function claimAllPosition(address[] enterees, address[] exitees, uint64 round, uint96 claimFee) returns()
-func (_Pool *PoolSession) ClaimAllPosition0(enterees []common.Address, exitees []common.Address, round uint64, claimFee *big.Int) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimAllPosition0(&_Pool.TransactOpts, enterees, exitees, round, claimFee)
+// Solidity: function claimAllPosition(bytes32[] mintees, bytes32[] burnees, uint64 round, uint96 claimFee) returns((int96,uint96,bytes32,uint64,uint64) state)
+func (_Pool *PoolSession) ClaimAllPosition0(mintees [][32]byte, burnees [][32]byte, round uint64, claimFee *big.Int) (*types.Transaction, error) {
+	return _Pool.Contract.ClaimAllPosition0(&_Pool.TransactOpts, mintees, burnees, round, claimFee)
 }
 
-// ClaimAllPosition0 is a paid mutator transaction binding the contract method 0xeaf8c36c.
+// ClaimAllPosition0 is a paid mutator transaction binding the contract method 0xa3055dca.
 //
-// Solidity: function claimAllPosition(address[] enterees, address[] exitees, uint64 round, uint96 claimFee) returns()
-func (_Pool *PoolTransactorSession) ClaimAllPosition0(enterees []common.Address, exitees []common.Address, round uint64, claimFee *big.Int) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimAllPosition0(&_Pool.TransactOpts, enterees, exitees, round, claimFee)
+// Solidity: function claimAllPosition(bytes32[] mintees, bytes32[] burnees, uint64 round, uint96 claimFee) returns((int96,uint96,bytes32,uint64,uint64) state)
+func (_Pool *PoolTransactorSession) ClaimAllPosition0(mintees [][32]byte, burnees [][32]byte, round uint64, claimFee *big.Int) (*types.Transaction, error) {
+	return _Pool.Contract.ClaimAllPosition0(&_Pool.TransactOpts, mintees, burnees, round, claimFee)
 }
 
 // ClaimAllSwap is a paid mutator transaction binding the contract method 0x809a89c1.
@@ -1181,46 +1272,25 @@ func (_Pool *PoolTransactorSession) ClaimAllSwap0(enterees []common.Address, exi
 	return _Pool.Contract.ClaimAllSwap0(&_Pool.TransactOpts, enterees, exitees, round, claimFee)
 }
 
-// ClaimBurn is a paid mutator transaction binding the contract method 0x6d67e187.
+// ClaimBurn is a paid mutator transaction binding the contract method 0x9fb90520.
 //
-// Solidity: function claimBurn(uint64 round, address recipient) returns()
-func (_Pool *PoolTransactor) ClaimBurn(opts *bind.TransactOpts, round uint64, recipient common.Address) (*types.Transaction, error) {
-	return _Pool.contract.Transact(opts, "claimBurn", round, recipient)
+// Solidity: function claimBurn(uint64 round, bytes32 tickAndFrom, address recipient) returns()
+func (_Pool *PoolTransactor) ClaimBurn(opts *bind.TransactOpts, round uint64, tickAndFrom [32]byte, recipient common.Address) (*types.Transaction, error) {
+	return _Pool.contract.Transact(opts, "claimBurn", round, tickAndFrom, recipient)
 }
 
-// ClaimBurn is a paid mutator transaction binding the contract method 0x6d67e187.
+// ClaimBurn is a paid mutator transaction binding the contract method 0x9fb90520.
 //
-// Solidity: function claimBurn(uint64 round, address recipient) returns()
-func (_Pool *PoolSession) ClaimBurn(round uint64, recipient common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimBurn(&_Pool.TransactOpts, round, recipient)
+// Solidity: function claimBurn(uint64 round, bytes32 tickAndFrom, address recipient) returns()
+func (_Pool *PoolSession) ClaimBurn(round uint64, tickAndFrom [32]byte, recipient common.Address) (*types.Transaction, error) {
+	return _Pool.Contract.ClaimBurn(&_Pool.TransactOpts, round, tickAndFrom, recipient)
 }
 
-// ClaimBurn is a paid mutator transaction binding the contract method 0x6d67e187.
+// ClaimBurn is a paid mutator transaction binding the contract method 0x9fb90520.
 //
-// Solidity: function claimBurn(uint64 round, address recipient) returns()
-func (_Pool *PoolTransactorSession) ClaimBurn(round uint64, recipient common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimBurn(&_Pool.TransactOpts, round, recipient)
-}
-
-// ClaimBurnFrom is a paid mutator transaction binding the contract method 0xe5d4045f.
-//
-// Solidity: function claimBurnFrom(uint64 round, address from) returns()
-func (_Pool *PoolTransactor) ClaimBurnFrom(opts *bind.TransactOpts, round uint64, from common.Address) (*types.Transaction, error) {
-	return _Pool.contract.Transact(opts, "claimBurnFrom", round, from)
-}
-
-// ClaimBurnFrom is a paid mutator transaction binding the contract method 0xe5d4045f.
-//
-// Solidity: function claimBurnFrom(uint64 round, address from) returns()
-func (_Pool *PoolSession) ClaimBurnFrom(round uint64, from common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimBurnFrom(&_Pool.TransactOpts, round, from)
-}
-
-// ClaimBurnFrom is a paid mutator transaction binding the contract method 0xe5d4045f.
-//
-// Solidity: function claimBurnFrom(uint64 round, address from) returns()
-func (_Pool *PoolTransactorSession) ClaimBurnFrom(round uint64, from common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimBurnFrom(&_Pool.TransactOpts, round, from)
+// Solidity: function claimBurn(uint64 round, bytes32 tickAndFrom, address recipient) returns()
+func (_Pool *PoolTransactorSession) ClaimBurn(round uint64, tickAndFrom [32]byte, recipient common.Address) (*types.Transaction, error) {
+	return _Pool.Contract.ClaimBurn(&_Pool.TransactOpts, round, tickAndFrom, recipient)
 }
 
 // ClaimEnter is a paid mutator transaction binding the contract method 0x02f1b248.
@@ -1244,27 +1314,6 @@ func (_Pool *PoolTransactorSession) ClaimEnter(round uint64, recipient common.Ad
 	return _Pool.Contract.ClaimEnter(&_Pool.TransactOpts, round, recipient)
 }
 
-// ClaimEnterFrom is a paid mutator transaction binding the contract method 0xb065f942.
-//
-// Solidity: function claimEnterFrom(uint64 round, address from) returns()
-func (_Pool *PoolTransactor) ClaimEnterFrom(opts *bind.TransactOpts, round uint64, from common.Address) (*types.Transaction, error) {
-	return _Pool.contract.Transact(opts, "claimEnterFrom", round, from)
-}
-
-// ClaimEnterFrom is a paid mutator transaction binding the contract method 0xb065f942.
-//
-// Solidity: function claimEnterFrom(uint64 round, address from) returns()
-func (_Pool *PoolSession) ClaimEnterFrom(round uint64, from common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimEnterFrom(&_Pool.TransactOpts, round, from)
-}
-
-// ClaimEnterFrom is a paid mutator transaction binding the contract method 0xb065f942.
-//
-// Solidity: function claimEnterFrom(uint64 round, address from) returns()
-func (_Pool *PoolTransactorSession) ClaimEnterFrom(round uint64, from common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimEnterFrom(&_Pool.TransactOpts, round, from)
-}
-
 // ClaimExit is a paid mutator transaction binding the contract method 0x2a9e4900.
 //
 // Solidity: function claimExit(uint64 round, address recipient) returns()
@@ -1286,46 +1335,25 @@ func (_Pool *PoolTransactorSession) ClaimExit(round uint64, recipient common.Add
 	return _Pool.Contract.ClaimExit(&_Pool.TransactOpts, round, recipient)
 }
 
-// ClaimMint is a paid mutator transaction binding the contract method 0x763b9587.
+// ClaimMint is a paid mutator transaction binding the contract method 0x28ab1a2e.
 //
-// Solidity: function claimMint(uint64 round, address recipient) returns()
-func (_Pool *PoolTransactor) ClaimMint(opts *bind.TransactOpts, round uint64, recipient common.Address) (*types.Transaction, error) {
-	return _Pool.contract.Transact(opts, "claimMint", round, recipient)
+// Solidity: function claimMint(uint64 round, bytes32 tickAndFrom, address recipient) returns()
+func (_Pool *PoolTransactor) ClaimMint(opts *bind.TransactOpts, round uint64, tickAndFrom [32]byte, recipient common.Address) (*types.Transaction, error) {
+	return _Pool.contract.Transact(opts, "claimMint", round, tickAndFrom, recipient)
 }
 
-// ClaimMint is a paid mutator transaction binding the contract method 0x763b9587.
+// ClaimMint is a paid mutator transaction binding the contract method 0x28ab1a2e.
 //
-// Solidity: function claimMint(uint64 round, address recipient) returns()
-func (_Pool *PoolSession) ClaimMint(round uint64, recipient common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimMint(&_Pool.TransactOpts, round, recipient)
+// Solidity: function claimMint(uint64 round, bytes32 tickAndFrom, address recipient) returns()
+func (_Pool *PoolSession) ClaimMint(round uint64, tickAndFrom [32]byte, recipient common.Address) (*types.Transaction, error) {
+	return _Pool.Contract.ClaimMint(&_Pool.TransactOpts, round, tickAndFrom, recipient)
 }
 
-// ClaimMint is a paid mutator transaction binding the contract method 0x763b9587.
+// ClaimMint is a paid mutator transaction binding the contract method 0x28ab1a2e.
 //
-// Solidity: function claimMint(uint64 round, address recipient) returns()
-func (_Pool *PoolTransactorSession) ClaimMint(round uint64, recipient common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimMint(&_Pool.TransactOpts, round, recipient)
-}
-
-// ClaimMintFrom is a paid mutator transaction binding the contract method 0x09df469b.
-//
-// Solidity: function claimMintFrom(uint64 round, address from) returns()
-func (_Pool *PoolTransactor) ClaimMintFrom(opts *bind.TransactOpts, round uint64, from common.Address) (*types.Transaction, error) {
-	return _Pool.contract.Transact(opts, "claimMintFrom", round, from)
-}
-
-// ClaimMintFrom is a paid mutator transaction binding the contract method 0x09df469b.
-//
-// Solidity: function claimMintFrom(uint64 round, address from) returns()
-func (_Pool *PoolSession) ClaimMintFrom(round uint64, from common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimMintFrom(&_Pool.TransactOpts, round, from)
-}
-
-// ClaimMintFrom is a paid mutator transaction binding the contract method 0x09df469b.
-//
-// Solidity: function claimMintFrom(uint64 round, address from) returns()
-func (_Pool *PoolTransactorSession) ClaimMintFrom(round uint64, from common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.ClaimMintFrom(&_Pool.TransactOpts, round, from)
+// Solidity: function claimMint(uint64 round, bytes32 tickAndFrom, address recipient) returns()
+func (_Pool *PoolTransactorSession) ClaimMint(round uint64, tickAndFrom [32]byte, recipient common.Address) (*types.Transaction, error) {
+	return _Pool.Contract.ClaimMint(&_Pool.TransactOpts, round, tickAndFrom, recipient)
 }
 
 // Enter is a paid mutator transaction binding the contract method 0xd014c01f.
@@ -1349,46 +1377,46 @@ func (_Pool *PoolTransactorSession) Enter(claimer common.Address) (*types.Transa
 	return _Pool.Contract.Enter(&_Pool.TransactOpts, claimer)
 }
 
-// Exit is a paid mutator transaction binding the contract method 0x120175ca.
+// Exit is a paid mutator transaction binding the contract method 0xcff40759.
 //
-// Solidity: function exit(uint256 amount, address recipient, address claimer) returns()
-func (_Pool *PoolTransactor) Exit(opts *bind.TransactOpts, amount *big.Int, recipient common.Address, claimer common.Address) (*types.Transaction, error) {
-	return _Pool.contract.Transact(opts, "exit", amount, recipient, claimer)
+// Solidity: function exit(uint256 amount, address claimer) returns()
+func (_Pool *PoolTransactor) Exit(opts *bind.TransactOpts, amount *big.Int, claimer common.Address) (*types.Transaction, error) {
+	return _Pool.contract.Transact(opts, "exit", amount, claimer)
 }
 
-// Exit is a paid mutator transaction binding the contract method 0x120175ca.
+// Exit is a paid mutator transaction binding the contract method 0xcff40759.
 //
-// Solidity: function exit(uint256 amount, address recipient, address claimer) returns()
-func (_Pool *PoolSession) Exit(amount *big.Int, recipient common.Address, claimer common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.Exit(&_Pool.TransactOpts, amount, recipient, claimer)
+// Solidity: function exit(uint256 amount, address claimer) returns()
+func (_Pool *PoolSession) Exit(amount *big.Int, claimer common.Address) (*types.Transaction, error) {
+	return _Pool.Contract.Exit(&_Pool.TransactOpts, amount, claimer)
 }
 
-// Exit is a paid mutator transaction binding the contract method 0x120175ca.
+// Exit is a paid mutator transaction binding the contract method 0xcff40759.
 //
-// Solidity: function exit(uint256 amount, address recipient, address claimer) returns()
-func (_Pool *PoolTransactorSession) Exit(amount *big.Int, recipient common.Address, claimer common.Address) (*types.Transaction, error) {
-	return _Pool.Contract.Exit(&_Pool.TransactOpts, amount, recipient, claimer)
+// Solidity: function exit(uint256 amount, address claimer) returns()
+func (_Pool *PoolTransactorSession) Exit(amount *big.Int, claimer common.Address) (*types.Transaction, error) {
+	return _Pool.Contract.Exit(&_Pool.TransactOpts, amount, claimer)
 }
 
-// Initialize is a paid mutator transaction binding the contract method 0x0b5162dc.
+// Initialize is a paid mutator transaction binding the contract method 0x18920773.
 //
-// Solidity: function initialize(uint24 fee_, address oracle_, uint8 oracleSlot_, string name_, string description_, bool long_, uint8 leverage_) returns()
-func (_Pool *PoolTransactor) Initialize(opts *bind.TransactOpts, fee_ *big.Int, oracle_ common.Address, oracleSlot_ uint8, name_ string, description_ string, long_ bool, leverage_ uint8) (*types.Transaction, error) {
-	return _Pool.contract.Transact(opts, "initialize", fee_, oracle_, oracleSlot_, name_, description_, long_, leverage_)
+// Solidity: function initialize(uint24 fee_, address oracle_, uint8 oracleSlot_, string name_, string symbol_, string description_, bool long_, uint8 leverage_) returns()
+func (_Pool *PoolTransactor) Initialize(opts *bind.TransactOpts, fee_ *big.Int, oracle_ common.Address, oracleSlot_ uint8, name_ string, symbol_ string, description_ string, long_ bool, leverage_ uint8) (*types.Transaction, error) {
+	return _Pool.contract.Transact(opts, "initialize", fee_, oracle_, oracleSlot_, name_, symbol_, description_, long_, leverage_)
 }
 
-// Initialize is a paid mutator transaction binding the contract method 0x0b5162dc.
+// Initialize is a paid mutator transaction binding the contract method 0x18920773.
 //
-// Solidity: function initialize(uint24 fee_, address oracle_, uint8 oracleSlot_, string name_, string description_, bool long_, uint8 leverage_) returns()
-func (_Pool *PoolSession) Initialize(fee_ *big.Int, oracle_ common.Address, oracleSlot_ uint8, name_ string, description_ string, long_ bool, leverage_ uint8) (*types.Transaction, error) {
-	return _Pool.Contract.Initialize(&_Pool.TransactOpts, fee_, oracle_, oracleSlot_, name_, description_, long_, leverage_)
+// Solidity: function initialize(uint24 fee_, address oracle_, uint8 oracleSlot_, string name_, string symbol_, string description_, bool long_, uint8 leverage_) returns()
+func (_Pool *PoolSession) Initialize(fee_ *big.Int, oracle_ common.Address, oracleSlot_ uint8, name_ string, symbol_ string, description_ string, long_ bool, leverage_ uint8) (*types.Transaction, error) {
+	return _Pool.Contract.Initialize(&_Pool.TransactOpts, fee_, oracle_, oracleSlot_, name_, symbol_, description_, long_, leverage_)
 }
 
-// Initialize is a paid mutator transaction binding the contract method 0x0b5162dc.
+// Initialize is a paid mutator transaction binding the contract method 0x18920773.
 //
-// Solidity: function initialize(uint24 fee_, address oracle_, uint8 oracleSlot_, string name_, string description_, bool long_, uint8 leverage_) returns()
-func (_Pool *PoolTransactorSession) Initialize(fee_ *big.Int, oracle_ common.Address, oracleSlot_ uint8, name_ string, description_ string, long_ bool, leverage_ uint8) (*types.Transaction, error) {
-	return _Pool.Contract.Initialize(&_Pool.TransactOpts, fee_, oracle_, oracleSlot_, name_, description_, long_, leverage_)
+// Solidity: function initialize(uint24 fee_, address oracle_, uint8 oracleSlot_, string name_, string symbol_, string description_, bool long_, uint8 leverage_) returns()
+func (_Pool *PoolTransactorSession) Initialize(fee_ *big.Int, oracle_ common.Address, oracleSlot_ uint8, name_ string, symbol_ string, description_ string, long_ bool, leverage_ uint8) (*types.Transaction, error) {
+	return _Pool.Contract.Initialize(&_Pool.TransactOpts, fee_, oracle_, oracleSlot_, name_, symbol_, description_, long_, leverage_)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa48d5ea5.
@@ -1410,6 +1438,27 @@ func (_Pool *PoolSession) Mint(positionTick *big.Int, claimer common.Address) (*
 // Solidity: function mint(int24 positionTick, address claimer) payable returns()
 func (_Pool *PoolTransactorSession) Mint(positionTick *big.Int, claimer common.Address) (*types.Transaction, error) {
 	return _Pool.Contract.Mint(&_Pool.TransactOpts, positionTick, claimer)
+}
+
+// Permit is a paid mutator transaction binding the contract method 0xd505accf.
+//
+// Solidity: function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s) returns()
+func (_Pool *PoolTransactor) Permit(opts *bind.TransactOpts, owner common.Address, spender common.Address, value *big.Int, deadline *big.Int, v uint8, r [32]byte, s [32]byte) (*types.Transaction, error) {
+	return _Pool.contract.Transact(opts, "permit", owner, spender, value, deadline, v, r, s)
+}
+
+// Permit is a paid mutator transaction binding the contract method 0xd505accf.
+//
+// Solidity: function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s) returns()
+func (_Pool *PoolSession) Permit(owner common.Address, spender common.Address, value *big.Int, deadline *big.Int, v uint8, r [32]byte, s [32]byte) (*types.Transaction, error) {
+	return _Pool.Contract.Permit(&_Pool.TransactOpts, owner, spender, value, deadline, v, r, s)
+}
+
+// Permit is a paid mutator transaction binding the contract method 0xd505accf.
+//
+// Solidity: function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s) returns()
+func (_Pool *PoolTransactorSession) Permit(owner common.Address, spender common.Address, value *big.Int, deadline *big.Int, v uint8, r [32]byte, s [32]byte) (*types.Transaction, error) {
+	return _Pool.Contract.Permit(&_Pool.TransactOpts, owner, spender, value, deadline, v, r, s)
 }
 
 // Rebalance is a paid mutator transaction binding the contract method 0x7d7c2a1c.
@@ -1701,13 +1750,14 @@ type PoolBurn struct {
 	Owner        common.Address
 	PositionTick *big.Int
 	Round        uint64
+	Claimer      common.Address
 	SharesBurned *big.Int
 	Raw          types.Log // Blockchain specific contextual infos
 }
 
-// FilterBurn is a free log retrieval operation binding the contract event 0xae3669c21ffd4d3dfc391499d929ae44e1c15b8cd655f496a80e61dbda57744b.
+// FilterBurn is a free log retrieval operation binding the contract event 0x368cba1582afce51c89331bd9da0af5f43f52ff2224dbb03744beb7d22e08edb.
 //
-// Solidity: event Burn(address indexed owner, int24 indexed positionTick, uint64 indexed round, uint128 sharesBurned)
+// Solidity: event Burn(address indexed owner, int24 indexed positionTick, uint64 indexed round, address claimer, uint128 sharesBurned)
 func (_Pool *PoolFilterer) FilterBurn(opts *bind.FilterOpts, owner []common.Address, positionTick []*big.Int, round []uint64) (*PoolBurnIterator, error) {
 
 	var ownerRule []interface{}
@@ -1730,9 +1780,9 @@ func (_Pool *PoolFilterer) FilterBurn(opts *bind.FilterOpts, owner []common.Addr
 	return &PoolBurnIterator{contract: _Pool.contract, event: "Burn", logs: logs, sub: sub}, nil
 }
 
-// WatchBurn is a free log subscription operation binding the contract event 0xae3669c21ffd4d3dfc391499d929ae44e1c15b8cd655f496a80e61dbda57744b.
+// WatchBurn is a free log subscription operation binding the contract event 0x368cba1582afce51c89331bd9da0af5f43f52ff2224dbb03744beb7d22e08edb.
 //
-// Solidity: event Burn(address indexed owner, int24 indexed positionTick, uint64 indexed round, uint128 sharesBurned)
+// Solidity: event Burn(address indexed owner, int24 indexed positionTick, uint64 indexed round, address claimer, uint128 sharesBurned)
 func (_Pool *PoolFilterer) WatchBurn(opts *bind.WatchOpts, sink chan<- *PoolBurn, owner []common.Address, positionTick []*big.Int, round []uint64) (event.Subscription, error) {
 
 	var ownerRule []interface{}
@@ -1780,9 +1830,9 @@ func (_Pool *PoolFilterer) WatchBurn(opts *bind.WatchOpts, sink chan<- *PoolBurn
 	}), nil
 }
 
-// ParseBurn is a log parse operation binding the contract event 0xae3669c21ffd4d3dfc391499d929ae44e1c15b8cd655f496a80e61dbda57744b.
+// ParseBurn is a log parse operation binding the contract event 0x368cba1582afce51c89331bd9da0af5f43f52ff2224dbb03744beb7d22e08edb.
 //
-// Solidity: event Burn(address indexed owner, int24 indexed positionTick, uint64 indexed round, uint128 sharesBurned)
+// Solidity: event Burn(address indexed owner, int24 indexed positionTick, uint64 indexed round, address claimer, uint128 sharesBurned)
 func (_Pool *PoolFilterer) ParseBurn(log types.Log) (*PoolBurn, error) {
 	event := new(PoolBurn)
 	if err := _Pool.contract.UnpackLog(event, "Burn", log); err != nil {
@@ -2186,7 +2236,7 @@ func (it *PoolClaimedExitIterator) Close() error {
 
 // PoolClaimedExit represents a ClaimedExit event raised by the Pool contract.
 type PoolClaimedExit struct {
-	Sender    common.Address
+	Exitee    common.Address
 	Recipient common.Address
 	Round     uint64
 	Raw       types.Log // Blockchain specific contextual infos
@@ -2194,12 +2244,12 @@ type PoolClaimedExit struct {
 
 // FilterClaimedExit is a free log retrieval operation binding the contract event 0x4febfd878de8dfeadee5baa2dcf0e8e5ae4103684573cb3aa22ffb0fd02d5721.
 //
-// Solidity: event ClaimedExit(address indexed sender, address indexed recipient, uint64 indexed round)
-func (_Pool *PoolFilterer) FilterClaimedExit(opts *bind.FilterOpts, sender []common.Address, recipient []common.Address, round []uint64) (*PoolClaimedExitIterator, error) {
+// Solidity: event ClaimedExit(address indexed exitee, address indexed recipient, uint64 indexed round)
+func (_Pool *PoolFilterer) FilterClaimedExit(opts *bind.FilterOpts, exitee []common.Address, recipient []common.Address, round []uint64) (*PoolClaimedExitIterator, error) {
 
-	var senderRule []interface{}
-	for _, senderItem := range sender {
-		senderRule = append(senderRule, senderItem)
+	var exiteeRule []interface{}
+	for _, exiteeItem := range exitee {
+		exiteeRule = append(exiteeRule, exiteeItem)
 	}
 	var recipientRule []interface{}
 	for _, recipientItem := range recipient {
@@ -2210,7 +2260,7 @@ func (_Pool *PoolFilterer) FilterClaimedExit(opts *bind.FilterOpts, sender []com
 		roundRule = append(roundRule, roundItem)
 	}
 
-	logs, sub, err := _Pool.contract.FilterLogs(opts, "ClaimedExit", senderRule, recipientRule, roundRule)
+	logs, sub, err := _Pool.contract.FilterLogs(opts, "ClaimedExit", exiteeRule, recipientRule, roundRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2219,12 +2269,12 @@ func (_Pool *PoolFilterer) FilterClaimedExit(opts *bind.FilterOpts, sender []com
 
 // WatchClaimedExit is a free log subscription operation binding the contract event 0x4febfd878de8dfeadee5baa2dcf0e8e5ae4103684573cb3aa22ffb0fd02d5721.
 //
-// Solidity: event ClaimedExit(address indexed sender, address indexed recipient, uint64 indexed round)
-func (_Pool *PoolFilterer) WatchClaimedExit(opts *bind.WatchOpts, sink chan<- *PoolClaimedExit, sender []common.Address, recipient []common.Address, round []uint64) (event.Subscription, error) {
+// Solidity: event ClaimedExit(address indexed exitee, address indexed recipient, uint64 indexed round)
+func (_Pool *PoolFilterer) WatchClaimedExit(opts *bind.WatchOpts, sink chan<- *PoolClaimedExit, exitee []common.Address, recipient []common.Address, round []uint64) (event.Subscription, error) {
 
-	var senderRule []interface{}
-	for _, senderItem := range sender {
-		senderRule = append(senderRule, senderItem)
+	var exiteeRule []interface{}
+	for _, exiteeItem := range exitee {
+		exiteeRule = append(exiteeRule, exiteeItem)
 	}
 	var recipientRule []interface{}
 	for _, recipientItem := range recipient {
@@ -2235,7 +2285,7 @@ func (_Pool *PoolFilterer) WatchClaimedExit(opts *bind.WatchOpts, sink chan<- *P
 		roundRule = append(roundRule, roundItem)
 	}
 
-	logs, sub, err := _Pool.contract.WatchLogs(opts, "ClaimedExit", senderRule, recipientRule, roundRule)
+	logs, sub, err := _Pool.contract.WatchLogs(opts, "ClaimedExit", exiteeRule, recipientRule, roundRule)
 	if err != nil {
 		return nil, err
 	}
@@ -2269,7 +2319,7 @@ func (_Pool *PoolFilterer) WatchClaimedExit(opts *bind.WatchOpts, sink chan<- *P
 
 // ParseClaimedExit is a log parse operation binding the contract event 0x4febfd878de8dfeadee5baa2dcf0e8e5ae4103684573cb3aa22ffb0fd02d5721.
 //
-// Solidity: event ClaimedExit(address indexed sender, address indexed recipient, uint64 indexed round)
+// Solidity: event ClaimedExit(address indexed exitee, address indexed recipient, uint64 indexed round)
 func (_Pool *PoolFilterer) ParseClaimedExit(log types.Log) (*PoolClaimedExit, error) {
 	event := new(PoolClaimedExit)
 	if err := _Pool.contract.UnpackLog(event, "ClaimedExit", log); err != nil {
@@ -2597,161 +2647,6 @@ func (_Pool *PoolFilterer) ParseCollect(log types.Log) (*PoolCollect, error) {
 	return event, nil
 }
 
-// PoolCollectProtocolIterator is returned from FilterCollectProtocol and is used to iterate over the raw logs and unpacked data for CollectProtocol events raised by the Pool contract.
-type PoolCollectProtocolIterator struct {
-	Event *PoolCollectProtocol // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *PoolCollectProtocolIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(PoolCollectProtocol)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(PoolCollectProtocol)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *PoolCollectProtocolIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *PoolCollectProtocolIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// PoolCollectProtocol represents a CollectProtocol event raised by the Pool contract.
-type PoolCollectProtocol struct {
-	Sender    common.Address
-	Recipient common.Address
-	Amount0   *big.Int
-	Amount1   *big.Int
-	Raw       types.Log // Blockchain specific contextual infos
-}
-
-// FilterCollectProtocol is a free log retrieval operation binding the contract event 0x596b573906218d3411850b26a6b437d6c4522fdb43d2d2386263f86d50b8b151.
-//
-// Solidity: event CollectProtocol(address indexed sender, address indexed recipient, uint128 amount0, uint128 amount1)
-func (_Pool *PoolFilterer) FilterCollectProtocol(opts *bind.FilterOpts, sender []common.Address, recipient []common.Address) (*PoolCollectProtocolIterator, error) {
-
-	var senderRule []interface{}
-	for _, senderItem := range sender {
-		senderRule = append(senderRule, senderItem)
-	}
-	var recipientRule []interface{}
-	for _, recipientItem := range recipient {
-		recipientRule = append(recipientRule, recipientItem)
-	}
-
-	logs, sub, err := _Pool.contract.FilterLogs(opts, "CollectProtocol", senderRule, recipientRule)
-	if err != nil {
-		return nil, err
-	}
-	return &PoolCollectProtocolIterator{contract: _Pool.contract, event: "CollectProtocol", logs: logs, sub: sub}, nil
-}
-
-// WatchCollectProtocol is a free log subscription operation binding the contract event 0x596b573906218d3411850b26a6b437d6c4522fdb43d2d2386263f86d50b8b151.
-//
-// Solidity: event CollectProtocol(address indexed sender, address indexed recipient, uint128 amount0, uint128 amount1)
-func (_Pool *PoolFilterer) WatchCollectProtocol(opts *bind.WatchOpts, sink chan<- *PoolCollectProtocol, sender []common.Address, recipient []common.Address) (event.Subscription, error) {
-
-	var senderRule []interface{}
-	for _, senderItem := range sender {
-		senderRule = append(senderRule, senderItem)
-	}
-	var recipientRule []interface{}
-	for _, recipientItem := range recipient {
-		recipientRule = append(recipientRule, recipientItem)
-	}
-
-	logs, sub, err := _Pool.contract.WatchLogs(opts, "CollectProtocol", senderRule, recipientRule)
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(PoolCollectProtocol)
-				if err := _Pool.contract.UnpackLog(event, "CollectProtocol", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseCollectProtocol is a log parse operation binding the contract event 0x596b573906218d3411850b26a6b437d6c4522fdb43d2d2386263f86d50b8b151.
-//
-// Solidity: event CollectProtocol(address indexed sender, address indexed recipient, uint128 amount0, uint128 amount1)
-func (_Pool *PoolFilterer) ParseCollectProtocol(log types.Log) (*PoolCollectProtocol, error) {
-	event := new(PoolCollectProtocol)
-	if err := _Pool.contract.UnpackLog(event, "CollectProtocol", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
 // PoolEnteredIterator is returned from FilterEntered and is used to iterate over the raw logs and unpacked data for Entered events raised by the Pool contract.
 type PoolEnteredIterator struct {
 	Event *PoolEntered // Event containing the contract specifics and raw log
@@ -2984,58 +2879,49 @@ func (it *PoolExitedIterator) Close() error {
 
 // PoolExited represents a Exited event raised by the Pool contract.
 type PoolExited struct {
-	Sender       common.Address
-	Recipient    common.Address
+	Exitee       common.Address
 	Round        uint64
 	Claimer      common.Address
 	SharesLocked *big.Int
 	Raw          types.Log // Blockchain specific contextual infos
 }
 
-// FilterExited is a free log retrieval operation binding the contract event 0xb98aed71c9d57f1908a52d74b87f2e5686e4d159bb4700c8b69a5a71ea91a4aa.
+// FilterExited is a free log retrieval operation binding the contract event 0x4b57c930249a429dcb198d48b8c5cdfb16ddc71cfb1535c8391baf12501b7041.
 //
-// Solidity: event Exited(address indexed sender, address indexed recipient, uint64 indexed round, address claimer, uint128 sharesLocked)
-func (_Pool *PoolFilterer) FilterExited(opts *bind.FilterOpts, sender []common.Address, recipient []common.Address, round []uint64) (*PoolExitedIterator, error) {
+// Solidity: event Exited(address indexed exitee, uint64 indexed round, address claimer, uint128 sharesLocked)
+func (_Pool *PoolFilterer) FilterExited(opts *bind.FilterOpts, exitee []common.Address, round []uint64) (*PoolExitedIterator, error) {
 
-	var senderRule []interface{}
-	for _, senderItem := range sender {
-		senderRule = append(senderRule, senderItem)
-	}
-	var recipientRule []interface{}
-	for _, recipientItem := range recipient {
-		recipientRule = append(recipientRule, recipientItem)
+	var exiteeRule []interface{}
+	for _, exiteeItem := range exitee {
+		exiteeRule = append(exiteeRule, exiteeItem)
 	}
 	var roundRule []interface{}
 	for _, roundItem := range round {
 		roundRule = append(roundRule, roundItem)
 	}
 
-	logs, sub, err := _Pool.contract.FilterLogs(opts, "Exited", senderRule, recipientRule, roundRule)
+	logs, sub, err := _Pool.contract.FilterLogs(opts, "Exited", exiteeRule, roundRule)
 	if err != nil {
 		return nil, err
 	}
 	return &PoolExitedIterator{contract: _Pool.contract, event: "Exited", logs: logs, sub: sub}, nil
 }
 
-// WatchExited is a free log subscription operation binding the contract event 0xb98aed71c9d57f1908a52d74b87f2e5686e4d159bb4700c8b69a5a71ea91a4aa.
+// WatchExited is a free log subscription operation binding the contract event 0x4b57c930249a429dcb198d48b8c5cdfb16ddc71cfb1535c8391baf12501b7041.
 //
-// Solidity: event Exited(address indexed sender, address indexed recipient, uint64 indexed round, address claimer, uint128 sharesLocked)
-func (_Pool *PoolFilterer) WatchExited(opts *bind.WatchOpts, sink chan<- *PoolExited, sender []common.Address, recipient []common.Address, round []uint64) (event.Subscription, error) {
+// Solidity: event Exited(address indexed exitee, uint64 indexed round, address claimer, uint128 sharesLocked)
+func (_Pool *PoolFilterer) WatchExited(opts *bind.WatchOpts, sink chan<- *PoolExited, exitee []common.Address, round []uint64) (event.Subscription, error) {
 
-	var senderRule []interface{}
-	for _, senderItem := range sender {
-		senderRule = append(senderRule, senderItem)
-	}
-	var recipientRule []interface{}
-	for _, recipientItem := range recipient {
-		recipientRule = append(recipientRule, recipientItem)
+	var exiteeRule []interface{}
+	for _, exiteeItem := range exitee {
+		exiteeRule = append(exiteeRule, exiteeItem)
 	}
 	var roundRule []interface{}
 	for _, roundItem := range round {
 		roundRule = append(roundRule, roundItem)
 	}
 
-	logs, sub, err := _Pool.contract.WatchLogs(opts, "Exited", senderRule, recipientRule, roundRule)
+	logs, sub, err := _Pool.contract.WatchLogs(opts, "Exited", exiteeRule, roundRule)
 	if err != nil {
 		return nil, err
 	}
@@ -3067,304 +2953,12 @@ func (_Pool *PoolFilterer) WatchExited(opts *bind.WatchOpts, sink chan<- *PoolEx
 	}), nil
 }
 
-// ParseExited is a log parse operation binding the contract event 0xb98aed71c9d57f1908a52d74b87f2e5686e4d159bb4700c8b69a5a71ea91a4aa.
+// ParseExited is a log parse operation binding the contract event 0x4b57c930249a429dcb198d48b8c5cdfb16ddc71cfb1535c8391baf12501b7041.
 //
-// Solidity: event Exited(address indexed sender, address indexed recipient, uint64 indexed round, address claimer, uint128 sharesLocked)
+// Solidity: event Exited(address indexed exitee, uint64 indexed round, address claimer, uint128 sharesLocked)
 func (_Pool *PoolFilterer) ParseExited(log types.Log) (*PoolExited, error) {
 	event := new(PoolExited)
 	if err := _Pool.contract.UnpackLog(event, "Exited", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// PoolFlashIterator is returned from FilterFlash and is used to iterate over the raw logs and unpacked data for Flash events raised by the Pool contract.
-type PoolFlashIterator struct {
-	Event *PoolFlash // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *PoolFlashIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(PoolFlash)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(PoolFlash)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *PoolFlashIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *PoolFlashIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// PoolFlash represents a Flash event raised by the Pool contract.
-type PoolFlash struct {
-	Sender    common.Address
-	Recipient common.Address
-	Amount0   *big.Int
-	Amount1   *big.Int
-	Paid0     *big.Int
-	Paid1     *big.Int
-	Raw       types.Log // Blockchain specific contextual infos
-}
-
-// FilterFlash is a free log retrieval operation binding the contract event 0xbdbdb71d7860376ba52b25a5028beea23581364a40522f6bcfb86bb1f2dca633.
-//
-// Solidity: event Flash(address indexed sender, address indexed recipient, uint256 amount0, uint256 amount1, uint256 paid0, uint256 paid1)
-func (_Pool *PoolFilterer) FilterFlash(opts *bind.FilterOpts, sender []common.Address, recipient []common.Address) (*PoolFlashIterator, error) {
-
-	var senderRule []interface{}
-	for _, senderItem := range sender {
-		senderRule = append(senderRule, senderItem)
-	}
-	var recipientRule []interface{}
-	for _, recipientItem := range recipient {
-		recipientRule = append(recipientRule, recipientItem)
-	}
-
-	logs, sub, err := _Pool.contract.FilterLogs(opts, "Flash", senderRule, recipientRule)
-	if err != nil {
-		return nil, err
-	}
-	return &PoolFlashIterator{contract: _Pool.contract, event: "Flash", logs: logs, sub: sub}, nil
-}
-
-// WatchFlash is a free log subscription operation binding the contract event 0xbdbdb71d7860376ba52b25a5028beea23581364a40522f6bcfb86bb1f2dca633.
-//
-// Solidity: event Flash(address indexed sender, address indexed recipient, uint256 amount0, uint256 amount1, uint256 paid0, uint256 paid1)
-func (_Pool *PoolFilterer) WatchFlash(opts *bind.WatchOpts, sink chan<- *PoolFlash, sender []common.Address, recipient []common.Address) (event.Subscription, error) {
-
-	var senderRule []interface{}
-	for _, senderItem := range sender {
-		senderRule = append(senderRule, senderItem)
-	}
-	var recipientRule []interface{}
-	for _, recipientItem := range recipient {
-		recipientRule = append(recipientRule, recipientItem)
-	}
-
-	logs, sub, err := _Pool.contract.WatchLogs(opts, "Flash", senderRule, recipientRule)
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(PoolFlash)
-				if err := _Pool.contract.UnpackLog(event, "Flash", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseFlash is a log parse operation binding the contract event 0xbdbdb71d7860376ba52b25a5028beea23581364a40522f6bcfb86bb1f2dca633.
-//
-// Solidity: event Flash(address indexed sender, address indexed recipient, uint256 amount0, uint256 amount1, uint256 paid0, uint256 paid1)
-func (_Pool *PoolFilterer) ParseFlash(log types.Log) (*PoolFlash, error) {
-	event := new(PoolFlash)
-	if err := _Pool.contract.UnpackLog(event, "Flash", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// PoolIncreaseObservationCardinalityNextIterator is returned from FilterIncreaseObservationCardinalityNext and is used to iterate over the raw logs and unpacked data for IncreaseObservationCardinalityNext events raised by the Pool contract.
-type PoolIncreaseObservationCardinalityNextIterator struct {
-	Event *PoolIncreaseObservationCardinalityNext // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *PoolIncreaseObservationCardinalityNextIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(PoolIncreaseObservationCardinalityNext)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(PoolIncreaseObservationCardinalityNext)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *PoolIncreaseObservationCardinalityNextIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *PoolIncreaseObservationCardinalityNextIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// PoolIncreaseObservationCardinalityNext represents a IncreaseObservationCardinalityNext event raised by the Pool contract.
-type PoolIncreaseObservationCardinalityNext struct {
-	ObservationCardinalityNextOld uint16
-	ObservationCardinalityNextNew uint16
-	Raw                           types.Log // Blockchain specific contextual infos
-}
-
-// FilterIncreaseObservationCardinalityNext is a free log retrieval operation binding the contract event 0xac49e518f90a358f652e4400164f05a5d8f7e35e7747279bc3a93dbf584e125a.
-//
-// Solidity: event IncreaseObservationCardinalityNext(uint16 observationCardinalityNextOld, uint16 observationCardinalityNextNew)
-func (_Pool *PoolFilterer) FilterIncreaseObservationCardinalityNext(opts *bind.FilterOpts) (*PoolIncreaseObservationCardinalityNextIterator, error) {
-
-	logs, sub, err := _Pool.contract.FilterLogs(opts, "IncreaseObservationCardinalityNext")
-	if err != nil {
-		return nil, err
-	}
-	return &PoolIncreaseObservationCardinalityNextIterator{contract: _Pool.contract, event: "IncreaseObservationCardinalityNext", logs: logs, sub: sub}, nil
-}
-
-// WatchIncreaseObservationCardinalityNext is a free log subscription operation binding the contract event 0xac49e518f90a358f652e4400164f05a5d8f7e35e7747279bc3a93dbf584e125a.
-//
-// Solidity: event IncreaseObservationCardinalityNext(uint16 observationCardinalityNextOld, uint16 observationCardinalityNextNew)
-func (_Pool *PoolFilterer) WatchIncreaseObservationCardinalityNext(opts *bind.WatchOpts, sink chan<- *PoolIncreaseObservationCardinalityNext) (event.Subscription, error) {
-
-	logs, sub, err := _Pool.contract.WatchLogs(opts, "IncreaseObservationCardinalityNext")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(PoolIncreaseObservationCardinalityNext)
-				if err := _Pool.contract.UnpackLog(event, "IncreaseObservationCardinalityNext", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseIncreaseObservationCardinalityNext is a log parse operation binding the contract event 0xac49e518f90a358f652e4400164f05a5d8f7e35e7747279bc3a93dbf584e125a.
-//
-// Solidity: event IncreaseObservationCardinalityNext(uint16 observationCardinalityNextOld, uint16 observationCardinalityNextNew)
-func (_Pool *PoolFilterer) ParseIncreaseObservationCardinalityNext(log types.Log) (*PoolIncreaseObservationCardinalityNext, error) {
-	event := new(PoolIncreaseObservationCardinalityNext)
-	if err := _Pool.contract.UnpackLog(event, "IncreaseObservationCardinalityNext", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -3578,13 +3172,14 @@ type PoolMint struct {
 	Sender       common.Address
 	PositionTick *big.Int
 	Round        uint64
+	Claimer      common.Address
 	AmountSent   *big.Int
 	Raw          types.Log // Blockchain specific contextual infos
 }
 
-// FilterMint is a free log retrieval operation binding the contract event 0x2dc957077933939dd5df0f856656d2e1f638799a8372371e705b67b851770a29.
+// FilterMint is a free log retrieval operation binding the contract event 0x51c0f7607cd62fa0b901c1d125a2b45f70b72849ba5b0e2e552366282e75033d.
 //
-// Solidity: event Mint(address indexed sender, int24 indexed positionTick, uint64 indexed round, uint96 amountSent)
+// Solidity: event Mint(address indexed sender, int24 indexed positionTick, uint64 indexed round, address claimer, uint96 amountSent)
 func (_Pool *PoolFilterer) FilterMint(opts *bind.FilterOpts, sender []common.Address, positionTick []*big.Int, round []uint64) (*PoolMintIterator, error) {
 
 	var senderRule []interface{}
@@ -3607,9 +3202,9 @@ func (_Pool *PoolFilterer) FilterMint(opts *bind.FilterOpts, sender []common.Add
 	return &PoolMintIterator{contract: _Pool.contract, event: "Mint", logs: logs, sub: sub}, nil
 }
 
-// WatchMint is a free log subscription operation binding the contract event 0x2dc957077933939dd5df0f856656d2e1f638799a8372371e705b67b851770a29.
+// WatchMint is a free log subscription operation binding the contract event 0x51c0f7607cd62fa0b901c1d125a2b45f70b72849ba5b0e2e552366282e75033d.
 //
-// Solidity: event Mint(address indexed sender, int24 indexed positionTick, uint64 indexed round, uint96 amountSent)
+// Solidity: event Mint(address indexed sender, int24 indexed positionTick, uint64 indexed round, address claimer, uint96 amountSent)
 func (_Pool *PoolFilterer) WatchMint(opts *bind.WatchOpts, sink chan<- *PoolMint, sender []common.Address, positionTick []*big.Int, round []uint64) (event.Subscription, error) {
 
 	var senderRule []interface{}
@@ -3657,149 +3252,12 @@ func (_Pool *PoolFilterer) WatchMint(opts *bind.WatchOpts, sink chan<- *PoolMint
 	}), nil
 }
 
-// ParseMint is a log parse operation binding the contract event 0x2dc957077933939dd5df0f856656d2e1f638799a8372371e705b67b851770a29.
+// ParseMint is a log parse operation binding the contract event 0x51c0f7607cd62fa0b901c1d125a2b45f70b72849ba5b0e2e552366282e75033d.
 //
-// Solidity: event Mint(address indexed sender, int24 indexed positionTick, uint64 indexed round, uint96 amountSent)
+// Solidity: event Mint(address indexed sender, int24 indexed positionTick, uint64 indexed round, address claimer, uint96 amountSent)
 func (_Pool *PoolFilterer) ParseMint(log types.Log) (*PoolMint, error) {
 	event := new(PoolMint)
 	if err := _Pool.contract.UnpackLog(event, "Mint", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// PoolSetFeeProtocolIterator is returned from FilterSetFeeProtocol and is used to iterate over the raw logs and unpacked data for SetFeeProtocol events raised by the Pool contract.
-type PoolSetFeeProtocolIterator struct {
-	Event *PoolSetFeeProtocol // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *PoolSetFeeProtocolIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(PoolSetFeeProtocol)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(PoolSetFeeProtocol)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *PoolSetFeeProtocolIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *PoolSetFeeProtocolIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// PoolSetFeeProtocol represents a SetFeeProtocol event raised by the Pool contract.
-type PoolSetFeeProtocol struct {
-	FeeProtocol0Old uint8
-	FeeProtocol1Old uint8
-	FeeProtocol0New uint8
-	FeeProtocol1New uint8
-	Raw             types.Log // Blockchain specific contextual infos
-}
-
-// FilterSetFeeProtocol is a free log retrieval operation binding the contract event 0x973d8d92bb299f4af6ce49b52a8adb85ae46b9f214c4c4fc06ac77401237b133.
-//
-// Solidity: event SetFeeProtocol(uint8 feeProtocol0Old, uint8 feeProtocol1Old, uint8 feeProtocol0New, uint8 feeProtocol1New)
-func (_Pool *PoolFilterer) FilterSetFeeProtocol(opts *bind.FilterOpts) (*PoolSetFeeProtocolIterator, error) {
-
-	logs, sub, err := _Pool.contract.FilterLogs(opts, "SetFeeProtocol")
-	if err != nil {
-		return nil, err
-	}
-	return &PoolSetFeeProtocolIterator{contract: _Pool.contract, event: "SetFeeProtocol", logs: logs, sub: sub}, nil
-}
-
-// WatchSetFeeProtocol is a free log subscription operation binding the contract event 0x973d8d92bb299f4af6ce49b52a8adb85ae46b9f214c4c4fc06ac77401237b133.
-//
-// Solidity: event SetFeeProtocol(uint8 feeProtocol0Old, uint8 feeProtocol1Old, uint8 feeProtocol0New, uint8 feeProtocol1New)
-func (_Pool *PoolFilterer) WatchSetFeeProtocol(opts *bind.WatchOpts, sink chan<- *PoolSetFeeProtocol) (event.Subscription, error) {
-
-	logs, sub, err := _Pool.contract.WatchLogs(opts, "SetFeeProtocol")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(PoolSetFeeProtocol)
-				if err := _Pool.contract.UnpackLog(event, "SetFeeProtocol", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseSetFeeProtocol is a log parse operation binding the contract event 0x973d8d92bb299f4af6ce49b52a8adb85ae46b9f214c4c4fc06ac77401237b133.
-//
-// Solidity: event SetFeeProtocol(uint8 feeProtocol0Old, uint8 feeProtocol1Old, uint8 feeProtocol0New, uint8 feeProtocol1New)
-func (_Pool *PoolFilterer) ParseSetFeeProtocol(log types.Log) (*PoolSetFeeProtocol, error) {
-	event := new(PoolSetFeeProtocol)
-	if err := _Pool.contract.UnpackLog(event, "SetFeeProtocol", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

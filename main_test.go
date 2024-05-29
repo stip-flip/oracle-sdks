@@ -20,7 +20,7 @@ func TestMain(m *testing.M) {
 	os.Exit(m.Run())
 }
 
-func TestOnlyMain(t *testing.T) {
+func TestOnlySwaps(t *testing.T) {
 	client, err := ethclient.Dial(os.Getenv("RPC_URL"))
 
 	if err != nil {
@@ -28,7 +28,7 @@ func TestOnlyMain(t *testing.T) {
 	}
 
 	// fetch all the pools
-	pools, err := queries.Pools()
+	pools, err := queries.Synths()
 
 	if err != nil {
 		log.Fatalf("Error querying the pools %s", err.Error())
@@ -36,9 +36,13 @@ func TestOnlyMain(t *testing.T) {
 
 	// join the pools in a mapping under their common oracle
 	oraclePools := make(map[string][]string)
-	for _, pool := range pools.Pools {
+	for _, pool := range pools.Synths {
 		oraclePools[pool.Oracle] = append(oraclePools[pool.Oracle], pool.ID)
 	}
 
-	performClaiming(client, oraclePools)
+	claimSwaps(client, oraclePools)
+}
+
+func TestOnlyMain(t *testing.T) {
+	main()
 }

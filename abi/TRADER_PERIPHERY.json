@@ -48,14 +48,14 @@
   {
     "inputs": [
       {
-        "internalType": "address[]",
-        "name": "enterees",
-        "type": "address[]"
+        "internalType": "bytes32[]",
+        "name": "mintees",
+        "type": "bytes32[]"
       },
       {
-        "internalType": "address[]",
-        "name": "exitees",
-        "type": "address[]"
+        "internalType": "bytes32[]",
+        "name": "burnees",
+        "type": "bytes32[]"
       },
       {
         "internalType": "uint64",
@@ -64,7 +64,7 @@
       },
       {
         "internalType": "address",
-        "name": "pool",
+        "name": "synth",
         "type": "address"
       }
     ],
@@ -92,7 +92,7 @@
       },
       {
         "internalType": "address",
-        "name": "pool",
+        "name": "synth",
         "type": "address"
       }
     ],

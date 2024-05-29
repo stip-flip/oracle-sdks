@@ -8,32 +8,32 @@ import (
 	"github.com/machinebox/graphql"
 )
 
-type PoolStruct struct {
+type SynthStruct struct {
 	ID     string `json:"id"`
 	Oracle string `json:"oracle"`
 }
 
-type PoolsData struct {
-	Pools []PoolStruct `json:"pools"`
+type SynthsData struct {
+	Synths []SynthStruct `json:"synths"`
 }
 
-func Pools() (*PoolsData, error) {
+func Synths() (*SynthsData, error) {
 	client := graphql.NewClient(os.Getenv("GQL_URL"))
 
 	req := graphql.NewRequest(`
 			query {
-				pools {
+				synths {
 					id
 					oracle
 				}
 			}
 	`)
 
-	var poolsData PoolsData
-	if err := client.Run(context.Background(), req, &poolsData); err != nil {
+	var synthsData SynthsData
+	if err := client.Run(context.Background(), req, &synthsData); err != nil {
 		fmt.Println(err)
 		return nil, err
 	}
 
-	return &poolsData, nil
+	return &synthsData, nil
 }
