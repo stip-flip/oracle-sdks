@@ -93,7 +93,7 @@ func claimSwaps(client *ethclient.Client, oraclePools map[string][]string) *type
 		}
 
 		// get the last round
-		lastRound, err := oracleContract.GetLastRound(nil)
+		lastRound, err := oracleContract.GetLastRound(nil, false)
 		if err != nil {
 			log.Errorf("Error getting oracle last round %s", err.Error())
 		}
@@ -134,7 +134,7 @@ func claimPositions(client *ethclient.Client, oraclePools map[string][]string) *
 		}
 
 		// get the last round
-		lastRound, err := oracleContract.GetLastRound(nil)
+		lastRound, err := oracleContract.GetLastRound(nil, true)
 		if err != nil {
 			log.Errorf("Error getting oracle last round %s", err.Error())
 		}

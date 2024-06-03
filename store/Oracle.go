@@ -31,7 +31,7 @@ var (
 
 // OracleMetaData contains all meta data concerning the Oracle contract.
 var OracleMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"uint8[8]\",\"name\":\"decimals_\",\"type\":\"uint8[8]\"},{\"internalType\":\"uint8[]\",\"name\":\"drops_\",\"type\":\"uint8[]\"},{\"internalType\":\"uint8\",\"name\":\"modulo_\",\"type\":\"uint8\"},{\"internalType\":\"uint24\",\"name\":\"offset\",\"type\":\"uint24\"},{\"internalType\":\"uint24\",\"name\":\"frequency_\",\"type\":\"uint24\"},{\"internalType\":\"uint24\",\"name\":\"roundDuration_\",\"type\":\"uint24\"},{\"internalType\":\"uint256\",\"name\":\"minStake_\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"description_\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"claim\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"accumulatedBounty\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"debt\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"frequency\",\"outputs\":[{\"internalType\":\"uint24\",\"name\":\"\",\"type\":\"uint24\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentRound\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"currentRound\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"slot\",\"type\":\"uint8\"}],\"name\":\"getDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLastRound\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"lastRound\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"}],\"name\":\"getRoundTimestamp\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"data\",\"type\":\"uint256\"}],\"name\":\"getSlots\",\"outputs\":[{\"internalType\":\"uint256[8]\",\"name\":\"slots\",\"type\":\"uint256[8]\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialized\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"}],\"name\":\"isRoundAllowed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isAllowed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"uint8\",\"name\":\"slot\",\"type\":\"uint8\"}],\"name\":\"lastPrice\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"price_\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"slot\",\"type\":\"uint8\"}],\"name\":\"lastPrice\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"price_\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"name\":\"lastPrices\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"mana\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"name\":\"manas\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minStake\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"},{\"internalType\":\"uint8\",\"name\":\"slot\",\"type\":\"uint8\"}],\"name\":\"nextPrice\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"price_\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"priceToMana\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"roundDuration\",\"outputs\":[{\"internalType\":\"uint24\",\"name\":\"\",\"type\":\"uint24\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"prices_\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"round\",\"type\":\"uint64\"}],\"name\":\"setPrices\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[8]\",\"name\":\"slots\",\"type\":\"uint256[8]\"}],\"name\":\"setSlots\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"data\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"stakes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"submitters\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalMana\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalStakes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}]",
+	ABI: "[{\"type\":\"constructor\",\"inputs\":[{\"name\":\"decimals_\",\"type\":\"uint8[8]\",\"internalType\":\"uint8[8]\"},{\"name\":\"drops_\",\"type\":\"uint8[]\",\"internalType\":\"uint8[]\"},{\"name\":\"modulo_\",\"type\":\"uint8\",\"internalType\":\"uint8\"},{\"name\":\"initialized_\",\"type\":\"uint64\",\"internalType\":\"uint64\"},{\"name\":\"frequency_\",\"type\":\"uint24\",\"internalType\":\"uint24\"},{\"name\":\"roundDuration_\",\"type\":\"uint24\",\"internalType\":\"uint24\"},{\"name\":\"delay_\",\"type\":\"uint24\",\"internalType\":\"uint24\"},{\"name\":\"minStake_\",\"type\":\"uint256\",\"internalType\":\"uint256\"},{\"name\":\"description_\",\"type\":\"string\",\"internalType\":\"string\"}],\"stateMutability\":\"nonpayable\"},{\"type\":\"receive\",\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"claim\",\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\",\"internalType\":\"address\"}],\"outputs\":[{\"name\":\"rewards\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"debt\",\"inputs\":[{\"name\":\"\",\"type\":\"address\",\"internalType\":\"address\"}],\"outputs\":[{\"name\":\"\",\"type\":\"int256\",\"internalType\":\"int256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"delay\",\"inputs\":[],\"outputs\":[{\"name\":\"\",\"type\":\"uint24\",\"internalType\":\"uint24\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"deposit\",\"inputs\":[],\"outputs\":[],\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"description\",\"inputs\":[],\"outputs\":[{\"name\":\"\",\"type\":\"string\",\"internalType\":\"string\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"frequency\",\"inputs\":[],\"outputs\":[{\"name\":\"\",\"type\":\"uint24\",\"internalType\":\"uint24\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getAccumulatedRewards\",\"inputs\":[{\"name\":\"user\",\"type\":\"address\",\"internalType\":\"address\"}],\"outputs\":[{\"name\":\"rewards\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getCurrentRound\",\"inputs\":[],\"outputs\":[{\"name\":\"currentRound\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getDecimals\",\"inputs\":[{\"name\":\"slot\",\"type\":\"uint8\",\"internalType\":\"uint8\"}],\"outputs\":[{\"name\":\"\",\"type\":\"uint8\",\"internalType\":\"uint8\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getLastRound\",\"inputs\":[{\"name\":\"withDelay\",\"type\":\"bool\",\"internalType\":\"bool\"}],\"outputs\":[{\"name\":\"lastRound\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getRound\",\"inputs\":[{\"name\":\"withDelay\",\"type\":\"bool\",\"internalType\":\"bool\"}],\"outputs\":[{\"name\":\"round\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getSlots\",\"inputs\":[{\"name\":\"data\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"outputs\":[{\"name\":\"slots\",\"type\":\"uint256[8]\",\"internalType\":\"uint256[8]\"}],\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"initialized\",\"inputs\":[],\"outputs\":[{\"name\":\"\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"isRoundAllowed\",\"inputs\":[{\"name\":\"round\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"outputs\":[{\"name\":\"isAllowed\",\"type\":\"bool\",\"internalType\":\"bool\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"lastPrice\",\"inputs\":[{\"name\":\"round\",\"type\":\"uint64\",\"internalType\":\"uint64\"},{\"name\":\"slot\",\"type\":\"uint8\",\"internalType\":\"uint8\"}],\"outputs\":[{\"name\":\"price_\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"lastPrice\",\"inputs\":[{\"name\":\"slot\",\"type\":\"uint8\",\"internalType\":\"uint8\"}],\"outputs\":[{\"name\":\"price_\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"lastPrice\",\"inputs\":[{\"name\":\"slot\",\"type\":\"uint8\",\"internalType\":\"uint8\"},{\"name\":\"long\",\"type\":\"bool\",\"internalType\":\"bool\"},{\"name\":\"leverage\",\"type\":\"uint8\",\"internalType\":\"enumIOracleView.Leverage\"}],\"outputs\":[{\"name\":\"price\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"lastPrices\",\"inputs\":[{\"name\":\"\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"outputs\":[{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"liquidate\",\"inputs\":[{\"name\":\"user\",\"type\":\"address\",\"internalType\":\"address\"},{\"name\":\"round\",\"type\":\"uint64\",\"internalType\":\"uint64\"},{\"name\":\"slot\",\"type\":\"uint8\",\"internalType\":\"uint8\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"mana\",\"inputs\":[{\"name\":\"\",\"type\":\"address\",\"internalType\":\"address\"}],\"outputs\":[{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"manas\",\"inputs\":[{\"name\":\"\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"outputs\":[{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"minStake\",\"inputs\":[],\"outputs\":[{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"nextPrice\",\"inputs\":[{\"name\":\"round\",\"type\":\"uint64\",\"internalType\":\"uint64\"},{\"name\":\"slot\",\"type\":\"uint8\",\"internalType\":\"uint8\"}],\"outputs\":[{\"name\":\"price_\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"priceToMana\",\"inputs\":[{\"name\":\"\",\"type\":\"uint64\",\"internalType\":\"uint64\"},{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"outputs\":[{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"roundDuration\",\"inputs\":[],\"outputs\":[{\"name\":\"\",\"type\":\"uint24\",\"internalType\":\"uint24\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"setPrices\",\"inputs\":[{\"name\":\"prices_\",\"type\":\"uint256\",\"internalType\":\"uint256\"},{\"name\":\"round\",\"type\":\"uint64\",\"internalType\":\"uint64\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setSlots\",\"inputs\":[{\"name\":\"slots\",\"type\":\"uint256[8]\",\"internalType\":\"uint256[8]\"}],\"outputs\":[{\"name\":\"data\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"stakes\",\"inputs\":[{\"name\":\"\",\"type\":\"address\",\"internalType\":\"address\"}],\"outputs\":[{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"submitters\",\"inputs\":[{\"name\":\"\",\"type\":\"uint64\",\"internalType\":\"uint64\"},{\"name\":\"\",\"type\":\"address\",\"internalType\":\"address\"}],\"outputs\":[{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"totalMana\",\"inputs\":[],\"outputs\":[{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"totalStakes\",\"inputs\":[],\"outputs\":[{\"name\":\"\",\"type\":\"uint256\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"withdraw\",\"inputs\":[{\"name\":\"amount\",\"type\":\"uint256\",\"internalType\":\"uint256\"},{\"name\":\"recipient\",\"type\":\"address\",\"internalType\":\"address\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"}]",
 }
 
 // OracleABI is the input ABI used to generate the binding from.
@@ -182,7 +182,7 @@ func (_Oracle *OracleTransactorRaw) Transact(opts *bind.TransactOpts, method str
 
 // Debt is a free data retrieval call binding the contract method 0x9b6c56ec.
 //
-// Solidity: function debt(address ) view returns(uint256)
+// Solidity: function debt(address ) view returns(int256)
 func (_Oracle *OracleCaller) Debt(opts *bind.CallOpts, arg0 common.Address) (*big.Int, error) {
 	var out []interface{}
 	err := _Oracle.contract.Call(opts, &out, "debt", arg0)
@@ -199,16 +199,47 @@ func (_Oracle *OracleCaller) Debt(opts *bind.CallOpts, arg0 common.Address) (*bi
 
 // Debt is a free data retrieval call binding the contract method 0x9b6c56ec.
 //
-// Solidity: function debt(address ) view returns(uint256)
+// Solidity: function debt(address ) view returns(int256)
 func (_Oracle *OracleSession) Debt(arg0 common.Address) (*big.Int, error) {
 	return _Oracle.Contract.Debt(&_Oracle.CallOpts, arg0)
 }
 
 // Debt is a free data retrieval call binding the contract method 0x9b6c56ec.
 //
-// Solidity: function debt(address ) view returns(uint256)
+// Solidity: function debt(address ) view returns(int256)
 func (_Oracle *OracleCallerSession) Debt(arg0 common.Address) (*big.Int, error) {
 	return _Oracle.Contract.Debt(&_Oracle.CallOpts, arg0)
+}
+
+// Delay is a free data retrieval call binding the contract method 0x6a42b8f8.
+//
+// Solidity: function delay() view returns(uint24)
+func (_Oracle *OracleCaller) Delay(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _Oracle.contract.Call(opts, &out, "delay")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// Delay is a free data retrieval call binding the contract method 0x6a42b8f8.
+//
+// Solidity: function delay() view returns(uint24)
+func (_Oracle *OracleSession) Delay() (*big.Int, error) {
+	return _Oracle.Contract.Delay(&_Oracle.CallOpts)
+}
+
+// Delay is a free data retrieval call binding the contract method 0x6a42b8f8.
+//
+// Solidity: function delay() view returns(uint24)
+func (_Oracle *OracleCallerSession) Delay() (*big.Int, error) {
+	return _Oracle.Contract.Delay(&_Oracle.CallOpts)
 }
 
 // Description is a free data retrieval call binding the contract method 0x7284e416.
@@ -273,6 +304,37 @@ func (_Oracle *OracleCallerSession) Frequency() (*big.Int, error) {
 	return _Oracle.Contract.Frequency(&_Oracle.CallOpts)
 }
 
+// GetAccumulatedRewards is a free data retrieval call binding the contract method 0x5ee09669.
+//
+// Solidity: function getAccumulatedRewards(address user) view returns(uint256 rewards)
+func (_Oracle *OracleCaller) GetAccumulatedRewards(opts *bind.CallOpts, user common.Address) (*big.Int, error) {
+	var out []interface{}
+	err := _Oracle.contract.Call(opts, &out, "getAccumulatedRewards", user)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// GetAccumulatedRewards is a free data retrieval call binding the contract method 0x5ee09669.
+//
+// Solidity: function getAccumulatedRewards(address user) view returns(uint256 rewards)
+func (_Oracle *OracleSession) GetAccumulatedRewards(user common.Address) (*big.Int, error) {
+	return _Oracle.Contract.GetAccumulatedRewards(&_Oracle.CallOpts, user)
+}
+
+// GetAccumulatedRewards is a free data retrieval call binding the contract method 0x5ee09669.
+//
+// Solidity: function getAccumulatedRewards(address user) view returns(uint256 rewards)
+func (_Oracle *OracleCallerSession) GetAccumulatedRewards(user common.Address) (*big.Int, error) {
+	return _Oracle.Contract.GetAccumulatedRewards(&_Oracle.CallOpts, user)
+}
+
 // GetCurrentRound is a free data retrieval call binding the contract method 0xa32bf597.
 //
 // Solidity: function getCurrentRound() view returns(uint64 currentRound)
@@ -335,12 +397,12 @@ func (_Oracle *OracleCallerSession) GetDecimals(slot uint8) (uint8, error) {
 	return _Oracle.Contract.GetDecimals(&_Oracle.CallOpts, slot)
 }
 
-// GetLastRound is a free data retrieval call binding the contract method 0x4231a2c3.
+// GetLastRound is a free data retrieval call binding the contract method 0x636909e2.
 //
-// Solidity: function getLastRound() view returns(uint64 lastRound)
-func (_Oracle *OracleCaller) GetLastRound(opts *bind.CallOpts) (uint64, error) {
+// Solidity: function getLastRound(bool withDelay) view returns(uint64 lastRound)
+func (_Oracle *OracleCaller) GetLastRound(opts *bind.CallOpts, withDelay bool) (uint64, error) {
 	var out []interface{}
-	err := _Oracle.contract.Call(opts, &out, "getLastRound")
+	err := _Oracle.contract.Call(opts, &out, "getLastRound", withDelay)
 
 	if err != nil {
 		return *new(uint64), err
@@ -352,26 +414,26 @@ func (_Oracle *OracleCaller) GetLastRound(opts *bind.CallOpts) (uint64, error) {
 
 }
 
-// GetLastRound is a free data retrieval call binding the contract method 0x4231a2c3.
+// GetLastRound is a free data retrieval call binding the contract method 0x636909e2.
 //
-// Solidity: function getLastRound() view returns(uint64 lastRound)
-func (_Oracle *OracleSession) GetLastRound() (uint64, error) {
-	return _Oracle.Contract.GetLastRound(&_Oracle.CallOpts)
+// Solidity: function getLastRound(bool withDelay) view returns(uint64 lastRound)
+func (_Oracle *OracleSession) GetLastRound(withDelay bool) (uint64, error) {
+	return _Oracle.Contract.GetLastRound(&_Oracle.CallOpts, withDelay)
 }
 
-// GetLastRound is a free data retrieval call binding the contract method 0x4231a2c3.
+// GetLastRound is a free data retrieval call binding the contract method 0x636909e2.
 //
-// Solidity: function getLastRound() view returns(uint64 lastRound)
-func (_Oracle *OracleCallerSession) GetLastRound() (uint64, error) {
-	return _Oracle.Contract.GetLastRound(&_Oracle.CallOpts)
+// Solidity: function getLastRound(bool withDelay) view returns(uint64 lastRound)
+func (_Oracle *OracleCallerSession) GetLastRound(withDelay bool) (uint64, error) {
+	return _Oracle.Contract.GetLastRound(&_Oracle.CallOpts, withDelay)
 }
 
-// GetRoundTimestamp is a free data retrieval call binding the contract method 0x95ea80a2.
+// GetRound is a free data retrieval call binding the contract method 0x247d0ba8.
 //
-// Solidity: function getRoundTimestamp(uint64 round) view returns(uint64)
-func (_Oracle *OracleCaller) GetRoundTimestamp(opts *bind.CallOpts, round uint64) (uint64, error) {
+// Solidity: function getRound(bool withDelay) view returns(uint64 round)
+func (_Oracle *OracleCaller) GetRound(opts *bind.CallOpts, withDelay bool) (uint64, error) {
 	var out []interface{}
-	err := _Oracle.contract.Call(opts, &out, "getRoundTimestamp", round)
+	err := _Oracle.contract.Call(opts, &out, "getRound", withDelay)
 
 	if err != nil {
 		return *new(uint64), err
@@ -383,18 +445,18 @@ func (_Oracle *OracleCaller) GetRoundTimestamp(opts *bind.CallOpts, round uint64
 
 }
 
-// GetRoundTimestamp is a free data retrieval call binding the contract method 0x95ea80a2.
+// GetRound is a free data retrieval call binding the contract method 0x247d0ba8.
 //
-// Solidity: function getRoundTimestamp(uint64 round) view returns(uint64)
-func (_Oracle *OracleSession) GetRoundTimestamp(round uint64) (uint64, error) {
-	return _Oracle.Contract.GetRoundTimestamp(&_Oracle.CallOpts, round)
+// Solidity: function getRound(bool withDelay) view returns(uint64 round)
+func (_Oracle *OracleSession) GetRound(withDelay bool) (uint64, error) {
+	return _Oracle.Contract.GetRound(&_Oracle.CallOpts, withDelay)
 }
 
-// GetRoundTimestamp is a free data retrieval call binding the contract method 0x95ea80a2.
+// GetRound is a free data retrieval call binding the contract method 0x247d0ba8.
 //
-// Solidity: function getRoundTimestamp(uint64 round) view returns(uint64)
-func (_Oracle *OracleCallerSession) GetRoundTimestamp(round uint64) (uint64, error) {
-	return _Oracle.Contract.GetRoundTimestamp(&_Oracle.CallOpts, round)
+// Solidity: function getRound(bool withDelay) view returns(uint64 round)
+func (_Oracle *OracleCallerSession) GetRound(withDelay bool) (uint64, error) {
+	return _Oracle.Contract.GetRound(&_Oracle.CallOpts, withDelay)
 }
 
 // GetSlots is a free data retrieval call binding the contract method 0xfc0b98b1.
@@ -550,6 +612,37 @@ func (_Oracle *OracleSession) LastPrice0(slot uint8) (uint64, error) {
 // Solidity: function lastPrice(uint8 slot) view returns(uint64 price_)
 func (_Oracle *OracleCallerSession) LastPrice0(slot uint8) (uint64, error) {
 	return _Oracle.Contract.LastPrice0(&_Oracle.CallOpts, slot)
+}
+
+// LastPrice1 is a free data retrieval call binding the contract method 0xc855c977.
+//
+// Solidity: function lastPrice(uint8 slot, bool long, uint8 leverage) view returns(uint64 price)
+func (_Oracle *OracleCaller) LastPrice1(opts *bind.CallOpts, slot uint8, long bool, leverage uint8) (uint64, error) {
+	var out []interface{}
+	err := _Oracle.contract.Call(opts, &out, "lastPrice1", slot, long, leverage)
+
+	if err != nil {
+		return *new(uint64), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(uint64)).(*uint64)
+
+	return out0, err
+
+}
+
+// LastPrice1 is a free data retrieval call binding the contract method 0xc855c977.
+//
+// Solidity: function lastPrice(uint8 slot, bool long, uint8 leverage) view returns(uint64 price)
+func (_Oracle *OracleSession) LastPrice1(slot uint8, long bool, leverage uint8) (uint64, error) {
+	return _Oracle.Contract.LastPrice1(&_Oracle.CallOpts, slot, long, leverage)
+}
+
+// LastPrice1 is a free data retrieval call binding the contract method 0xc855c977.
+//
+// Solidity: function lastPrice(uint8 slot, bool long, uint8 leverage) view returns(uint64 price)
+func (_Oracle *OracleCallerSession) LastPrice1(slot uint8, long bool, leverage uint8) (uint64, error) {
+	return _Oracle.Contract.LastPrice1(&_Oracle.CallOpts, slot, long, leverage)
 }
 
 // LastPrices is a free data retrieval call binding the contract method 0x6c695b96.
@@ -926,21 +1019,21 @@ func (_Oracle *OracleCallerSession) TotalStakes() (*big.Int, error) {
 
 // Claim is a paid mutator transaction binding the contract method 0x1e83409a.
 //
-// Solidity: function claim(address recipient) returns(uint256 accumulatedBounty)
+// Solidity: function claim(address recipient) returns(uint256 rewards)
 func (_Oracle *OracleTransactor) Claim(opts *bind.TransactOpts, recipient common.Address) (*types.Transaction, error) {
 	return _Oracle.contract.Transact(opts, "claim", recipient)
 }
 
 // Claim is a paid mutator transaction binding the contract method 0x1e83409a.
 //
-// Solidity: function claim(address recipient) returns(uint256 accumulatedBounty)
+// Solidity: function claim(address recipient) returns(uint256 rewards)
 func (_Oracle *OracleSession) Claim(recipient common.Address) (*types.Transaction, error) {
 	return _Oracle.Contract.Claim(&_Oracle.TransactOpts, recipient)
 }
 
 // Claim is a paid mutator transaction binding the contract method 0x1e83409a.
 //
-// Solidity: function claim(address recipient) returns(uint256 accumulatedBounty)
+// Solidity: function claim(address recipient) returns(uint256 rewards)
 func (_Oracle *OracleTransactorSession) Claim(recipient common.Address) (*types.Transaction, error) {
 	return _Oracle.Contract.Claim(&_Oracle.TransactOpts, recipient)
 }
@@ -964,6 +1057,27 @@ func (_Oracle *OracleSession) Deposit() (*types.Transaction, error) {
 // Solidity: function deposit() payable returns()
 func (_Oracle *OracleTransactorSession) Deposit() (*types.Transaction, error) {
 	return _Oracle.Contract.Deposit(&_Oracle.TransactOpts)
+}
+
+// Liquidate is a paid mutator transaction binding the contract method 0x679ed888.
+//
+// Solidity: function liquidate(address user, uint64 round, uint8 slot) returns()
+func (_Oracle *OracleTransactor) Liquidate(opts *bind.TransactOpts, user common.Address, round uint64, slot uint8) (*types.Transaction, error) {
+	return _Oracle.contract.Transact(opts, "liquidate", user, round, slot)
+}
+
+// Liquidate is a paid mutator transaction binding the contract method 0x679ed888.
+//
+// Solidity: function liquidate(address user, uint64 round, uint8 slot) returns()
+func (_Oracle *OracleSession) Liquidate(user common.Address, round uint64, slot uint8) (*types.Transaction, error) {
+	return _Oracle.Contract.Liquidate(&_Oracle.TransactOpts, user, round, slot)
+}
+
+// Liquidate is a paid mutator transaction binding the contract method 0x679ed888.
+//
+// Solidity: function liquidate(address user, uint64 round, uint8 slot) returns()
+func (_Oracle *OracleTransactorSession) Liquidate(user common.Address, round uint64, slot uint8) (*types.Transaction, error) {
+	return _Oracle.Contract.Liquidate(&_Oracle.TransactOpts, user, round, slot)
 }
 
 // SetPrices is a paid mutator transaction binding the contract method 0xf97b32f6.
