@@ -55,12 +55,18 @@ func QueryCoingecko(apiKey string) (*[8]*big.Int, error) {
 		// wait 1 minute to avoid rate limiting
 		time.Sleep(1 * time.Minute)
 
-		price, err := fetchCoinPrice(coinID, apiKey, float64(etcPrice.Int64())/1e6)
+		price, err := fetchCoinPrice(coinID, apiKey, float64(math.Pow(10, decimals["etc"]))/float64(etcPrice.Int64()))
+
 		if err != nil {
 			return nil, err
 		}
 		prices[i] = price
 	}
+
+	for _, price := range prices {
+		println(price)
+	}
+
 	return &prices, nil
 }
 

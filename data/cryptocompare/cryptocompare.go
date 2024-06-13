@@ -50,15 +50,22 @@ func QueryCryptocompare(apiKey string) (*[8]*big.Int, error) {
 			prices[0] = etcPrice
 			continue
 		}
-		// wait 1 minute to avoid rate limiting
-		time.Sleep(1 * time.Minute)
 
-		price, err := fetchCoinPrice(coinID, apiKey, float64(etcPrice.Int64())/1e6)
+		// wait 1 minute to avoid rate limiting
+		// time.Sleep(1 * time.Minute)
+
+		price, err := fetchCoinPrice(coinID, apiKey, float64(math.Pow(10, decimals["etc"]))/float64(etcPrice.Int64()))
+
 		if err != nil {
 			return nil, err
 		}
 		prices[i] = price
 	}
+
+	for _, price := range prices {
+		println(price)
+	}
+
 	return &prices, nil
 }
 
@@ -70,9 +77,9 @@ func fetchCoinPrice(coinID string, apiKey string, etcPrice ...float64) (*big.Int
 	params.Set("limit", "1")
 	params.Set("api_key", apiKey)
 	// make sure the time is between 00:00 and 1am UTC
-	if time.Now().UTC().Hour() > 1 {
-		return nil, fmt.Errorf("time is not between 00:00 and 1am UTC")
-	}
+	// if time.Now().UTC().Hour() > 1 {
+	// 	return nil, fmt.Errorf("time is not between 00:00 and 1am UTC")
+	// }
 
 	// Construct the URL for the specific coin
 	url := baseURL + "?" + params.Encode()
@@ -125,11 +132,9 @@ func fetchCoinPrice(coinID string, apiKey string, etcPrice ...float64) (*big.Int
 	log.Infof("Price of %s: %f", coinID, price)
 
 	if coinID == "etc" {
-		fmt.Println(1e6/price, big.NewInt(int64(math.Pow(10, decimals[coinID])/price)))
 		return big.NewInt(int64(math.Pow(10, decimals[coinID]) / price)), nil
 	} else {
-		fmt.Println(big.NewInt(int64(price * 1e9 / etcPrice[0])))
-		return big.NewInt(int64(price / etcPrice[0] * math.Pow(10, decimals[coinID]))), nil
+		return big.NewInt(int64(price * math.Pow(10, decimals[coinID]) / etcPrice[0])), nil
 	}
 }
 
