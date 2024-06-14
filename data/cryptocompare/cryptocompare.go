@@ -21,13 +21,13 @@ import (
 var coinIDs = []string{"etc", "btc", "eth", "doge", "xmr", "sol", "bnb", "ada"}
 
 var decimals = map[string]float64{
-	"etc":  6, // EthereumClassic will be used as USD, so we want the price of USD in ETC, probably below 0
-	"btc":  4,
-	"eth":  5,
-	"doge": 7,
-	"xmr":  6,
-	"sol":  6,
-	"bnb":  5,
+	"etc":  7, // EthereumClassic will be used as USD, so we want the price of USD in ETC, probably below 0
+	"btc":  2,
+	"eth":  3,
+	"doge": 8,
+	"xmr":  5,
+	"sol":  5,
+	"bnb":  4,
 	"ada":  7,
 }
 
