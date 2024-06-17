@@ -38,25 +38,68 @@ docker pull sotachi/sf-oracle
 
 ## Usage
 
-Once the sdk is installed and ready to run, you need to set the following environment variables:
+You have 2 possibility to run the sdk, either as a server or as a cron job.
 
-```shell
+1. As a server
 
-# The private key of the account that will be used to sign transactions
-PRIVATE_KEY=your-private-key
-# Cryptocompare API key
-CC_API_KEY=your-api-key
-# The contract oracle address that will be used to store crypto compare oracle prices
-CC_ORACLE_ADDRESS=cc-oracle-address
+   Once the sdk is installed and ready to run, you need to set the following environment variables:
 
-POLL_INTERVAL=300s
-```
+   ```shell
 
-This .env file hold important informations, ie the private key, make sure it is kept safe and not shared with anyone.
+   # The private key of the account that will be used to sign transactions
+   PRIVATE_KEY=your-private-key
+   # Cryptocompare API key
+   CC_API_KEY=your-api-key
+   # The contract oracle address that will be used to store crypto compare oracle prices
+   CC_ORACLE_ADDRESS=cc-oracle-address
 
-Note that in order to submit prices to an oracle, you need to stake a minimum amount in the contract first. Visit https://sf.exchange/oracle/deposit to stake the minimum amount.
+   POLL_INTERVAL=300s
 
-You can then run this program as a standalone binary or as a docker container.
+   RPC_URL=rpc-url
+   ```
+
+   This .env file hold important informations, ie the private key, make sure it is kept safe and not shared with anyone.
+
+   Note that in order to submit prices to an oracle, you need to stake a minimum amount in the contract first. Visit https://sf.exchange/oracle/deposit to stake the minimum amount.
+
+   You can then run this program as a standalone binary or as a docker container.
+
+2. As a CRON job
+
+   Download the appropriate binary (cronv1.0.1) from the releases page or build it from source.
+
+   Create a .env file next to the cron binary with the following content:
+
+   ```shell
+   # The private key of the account that will be used to sign transactions
+   PRIVATE_KEY=your-private-key
+
+   CHAIN_ID=61
+
+   RPC_URL=https://etc.etcdesktop.com
+   ```
+
+   This .env file hold important informations, ie the private key, make sure it is kept safe and not shared with anyone.
+
+   You can then automate the execution of the binary by using the daily_task script available in the repository.
+
+   Windows:
+
+   Open Powersell and run the following command:
+
+   ```shell
+   .\daily_task.ps1 "path-to-cron-binary"
+   ```
+
+   Linux and MacOS:
+
+   Open a terminal and run the following command:
+
+   ```shell
+   ./daily_task.sh "path-to-cron-binary"
+   ```
+
+   This will wake your computer up from sleep and run the cron binary at 00:30 UTC every day.
 
 ## License
 
