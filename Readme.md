@@ -66,7 +66,7 @@ You have 2 possibility to run the sdk, either as a server or as a cron job.
 
 2. As a CRON job
 
-   Download the appropriate binary (cronv1.0.1) from the releases page or build it from source.
+   Download the appropriate binary ([cronv1.0.1](https://github.com/stip-flip/oracle-sdks/releases)) from the releases page or build it from source.
 
    Create a .env file next to the cron binary with the following content:
 
@@ -88,7 +88,8 @@ You have 2 possibility to run the sdk, either as a server or as a cron job.
    Open Powersell and run the following command:
 
    ```shell
-   .\daily_task.ps1 "path-to-cron-binary"
+   chmod +x .\daily_task.ps1
+   .\daily_task.ps1 "absolute-path-to-cron-binary"
    ```
 
    Linux and MacOS:
@@ -96,10 +97,13 @@ You have 2 possibility to run the sdk, either as a server or as a cron job.
    Open a terminal and run the following command:
 
    ```shell
-   ./daily_task.sh "path-to-cron-binary"
+    chmod +x ./daily_task.sh
+   ./daily_task.sh "absolute-path-to-cron-binary"
    ```
 
    This will wake your computer up from sleep and run the cron binary at 00:30 UTC every day.
+
+   MacOS will by default block the execution of the binary, you need to allow it in the security settings.
 
 ## License
 

@@ -16,10 +16,14 @@ is_linux() {
     [[ "$OSTYPE" == "linux-gnu"* ]]
 }
 
-# Function to calculate local time from UTC
-convert_utc_to_local() {
-    local utc_time="$1"
-    date -d "$utc_time UTC" +"%H:%M"
+# Function to convert UTC time to local time on macOS
+convert_utc_to_local_macos() {
+    date -j -f "%H:%M %Z" "$UTC_TIME UTC" +"%H:%M"
+}
+
+# Function to convert UTC time to local time on Linux
+convert_utc_to_local_linux() {
+    date -d "$UTC_TIME UTC" +"%H:%M"
 }
 
 # Function to set up macOS
@@ -27,10 +31,10 @@ setup_macos() {
     echo "Setting up macOS..."
 
     # Convert UTC time to local time
-    local_time=$(convert_utc_to_local "$UTC_TIME")
+    local_time=$(convert_utc_to_local_macos)
 
     # Schedule wake-up using pmset
-    sudo pmset repeat wakeorpoweron MTWRFSU "$local_time"
+    sudo pmset repeat wakeorpoweron MTWRFSU "$local_time:00"
 
     # Parse hour and minute from local time
     local_hour=$(echo "$local_time" | cut -d':' -f1)
@@ -74,7 +78,7 @@ setup_linux() {
     echo "Setting up Linux..."
 
     # Convert UTC time to local time
-    local_time=$(convert_utc_to_local "$UTC_TIME")
+    local_time=$(convert_utc_to_local_linux)
 
     # Schedule the cron job to run the script at 00:30 UTC
     (crontab -l 2>/dev/null; echo "30 0 * * * $SCRIPT_PATH") | crontab -
