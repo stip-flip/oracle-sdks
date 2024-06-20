@@ -87,7 +87,7 @@ You can then automate the execution of the binary by using the daily_task bash s
 
 Windows:
 
-[Download](https://github.com/stip-flip/oracle-sdks/releases/download/v1.0.1/daily_task.ps1) and place the daily_task.sh script in the same directory as the cron binary and the .env files.
+[Download](https://github.com/stip-flip/oracle-sdks/releases/download/v1.0.1/daily_task.ps1) and place the daily_task.ps1 script in the same directory as the cron binary and the .env files.
 
 Open Powersell and run the following command:
 

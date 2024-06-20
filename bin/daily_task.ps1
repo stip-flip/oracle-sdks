@@ -1,5 +1,6 @@
 # Define variables
-$binaryPath = $args[0]  # Update this to access the first command-line parameter
+$binaryPath = Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) $args[0]  # Prepend the absolute path of the current directory
+$envPath = Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) .env  # Prepend the absolute path of the current directory
 $taskName = "DailyBinaryExecution"
 $timeUTC = "00:30"
 
@@ -9,6 +10,12 @@ $localTime = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId(
     "UTC", 
     [System.TimeZoneInfo]::Local.Id
 )
+
+# Load environment variable
+$envVariables = Get-Content $envPath | ForEach-Object {
+  $line = $_ -split '=', 2
+  [System.Environment]::SetEnvironmentVariable($line[0], $line[1], 'User')
+}
 
 # Create a new task action
 $action = New-ScheduledTaskAction -Execute $binaryPath
