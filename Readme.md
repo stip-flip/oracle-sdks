@@ -55,7 +55,9 @@ You have 2 possibility to run the sdk, either as a server or as a cron job.
 
    POLL_INTERVAL=300s
 
-   RPC_URL=rpc-url
+   CHAIN_ID=61
+
+   RPC_URL=https://etc.etcdesktop.com
    ```
 
    This .env file hold important informations, ie the private key, make sure it is kept safe and not shared with anyone.

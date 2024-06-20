@@ -139,7 +139,7 @@ func fetchCoinPrice(coinID string, apiKey string, etcPrice ...float64) (*big.Int
 }
 
 func FetchAndSubmit(client *ethclient.Client, oracleAddress string) {
-	// get the coingecko api key
+	// get the cryptocompare api key
 	apiKey := os.Getenv("CC_API_KEY")
 	// Set the log format to include the timestamp in UTC
 	log.SetFormatter(&logrus.TextFormatter{
