@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Define variables
-SCRIPT_PATH="$1"
-PLIST_PATH="/Library/LaunchDaemons/com.example.dailyscript.plist"
+SCRIPT_PATH="$(dirname "$(readlink -f "$0")")/$1"
+ENV_PATH="$(dirname "$(readlink -f "$0")")/.env"
+PLIST_PATH="/Library/LaunchDaemons/com.stipflip.dailyscript.plist"
 CRON_FILE="/etc/cron.d/wakeup"
 UTC_TIME="00:30"
 
@@ -18,7 +19,7 @@ is_linux() {
 
 # Function to convert UTC time to local time on macOS
 convert_utc_to_local_macos() {
-    date -j -f "%H:%M %Z" "$UTC_TIME UTC" +"%H:%M"
+    date -jf "%H:%M %z" "$UTC_TIME +0000" +"%H:%M"
 }
 
 # Function to convert UTC time to local time on Linux
@@ -33,12 +34,17 @@ setup_macos() {
     # Convert UTC time to local time
     local_time=$(convert_utc_to_local_macos)
 
+    echo $local_time
+
     # Schedule wake-up using pmset
     sudo pmset repeat wakeorpoweron MTWRFSU "$local_time:00"
 
     # Parse hour and minute from local time
     local_hour=$(echo "$local_time" | cut -d':' -f1)
     local_minute=$(echo "$local_time" | cut -d':' -f2)
+
+    echo $local_hour
+    echo $local_minute
 
     # Create a launch daemon plist file
     sudo tee $PLIST_PATH > /dev/null <<EOL
@@ -47,9 +53,10 @@ setup_macos() {
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.example.dailyscript</string>
+    <string>com.stipflip.dailyscript</string>
     <key>ProgramArguments</key>
     <array>
+        <string>source $ENV_PATH</string>
         <string>$SCRIPT_PATH</string>
     </array>
     <key>StartCalendarInterval</key>
@@ -62,9 +69,9 @@ setup_macos() {
     <key>RunAtLoad</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/tmp/com.example.dailyscript.out</string>
+    <string>/tmp/com.stipflip.dailyscript.out</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/com.example.dailyscript.err</string>
+    <string>/tmp/com.stipflip.dailyscript.err</string>
 </dict>
 </plist>
 EOL

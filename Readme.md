@@ -81,7 +81,9 @@ You have 2 possibility to run the sdk, either as a server or as a cron job.
 
    This .env file hold important informations, ie the private key, make sure it is kept safe and not shared with anyone.
 
-   You can then automate the execution of the binary by using the daily_task script available in the repository.
+   You can then automate the execution of the binary by using the daily_task bash script available in the repository.
+
+   [Download](https://github.com/stip-flip/oracle-sdks/releases/download/v1.0.1/daily_task.sh) and place the daily_task.sh script in the same directory as the cron binary and the .env files.
 
    Windows:
 
@@ -89,7 +91,8 @@ You have 2 possibility to run the sdk, either as a server or as a cron job.
 
    ```shell
    chmod +x .\daily_task.ps1
-   .\daily_task.ps1 "absolute-path-to-cron-binary"
+   chmod +x "cron-binary-name"
+   .\daily_task.ps1 "cron-binary-name"
    ```
 
    Linux and MacOS:
@@ -98,7 +101,8 @@ You have 2 possibility to run the sdk, either as a server or as a cron job.
 
    ```shell
     chmod +x ./daily_task.sh
-   ./daily_task.sh "absolute-path-to-cron-binary"
+    chmod +x "cron-binary-name"
+   ./daily_task.sh "cron-binary-name"
    ```
 
    This will wake your computer up from sleep and run the cron binary at 00:30 UTC every day.
