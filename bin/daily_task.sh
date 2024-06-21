@@ -56,8 +56,8 @@ setup_macos() {
     <string>com.stipflip.dailyscript</string>
     <key>ProgramArguments</key>
     <array>
-        <string>source $ENV_PATH</string>
         <string>$SCRIPT_PATH</string>
+        <string>$ENV_PATH</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>

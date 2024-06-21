@@ -14,7 +14,7 @@ import (
 var log = logrus.New()
 
 func checkEnvVars() {
-	envVars := []string{"RPC_URL", "PRIVATE_KEY", "CHAIN_ID"}
+	envVars := []string{"RPC_URL", "PRIVATE_KEY", "CHAIN_ID", "CC_ORACLE_ADDRESS"}
 
 	for _, envVar := range envVars {
 		if os.Getenv(envVar) == "" {
@@ -37,7 +37,7 @@ func main() {
 		logrus.Info("Failed to log to file, using default stderr")
 	}
 
-	err = godotenv.Load()
+	err = godotenv.Load(os.Args[1])
 	if err != nil {
 		log.Warn("Could not load .env file")
 	}
