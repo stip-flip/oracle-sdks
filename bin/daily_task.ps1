@@ -11,14 +11,8 @@ $localTime = [System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId(
     [System.TimeZoneInfo]::Local.Id
 )
 
-# Load environment variable
-$envVariables = Get-Content $envPath | ForEach-Object {
-  $line = $_ -split '=', 2
-  [System.Environment]::SetEnvironmentVariable($line[0], $line[1], 'User')
-}
-
 # Create a new task action
-$action = New-ScheduledTaskAction -Execute $binaryPath
+$action = New-ScheduledTaskAction -Execute $binaryPath -Argument $envPath
 
 # Create a daily trigger at the local time
 $trigger = New-ScheduledTaskTrigger -Daily -At $localTime.TimeOfDay
